@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountEnterEmailError" xml:space="preserve">
+    <value>Неправильна пошта або користувач з такою поштовою адресою вже зареєстрован </value>
+  </data>
+  <data name="AccountEnterEmailNotFound" xml:space="preserve">
+    <value>Користувач з такою поштовою адресою не знайден.</value>
+  </data>
+  <data name="AccountRegisterCodeOrEmailIsNotValid" xml:space="preserve">
+    <value>Невірний email або медичний код</value>
+  </data>
+  <data name="PasswordAndConfirmationPasswordDoNotMatch" xml:space="preserve">
+    <value>Паролі не співпадають</value>
+  </data>
+  <data name="EntryHistoryViewModelComplains" xml:space="preserve">
+    <value>Скарги</value>
+  </data>
+  <data name="EntryHistoryViewModelDate" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="EntryHistoryViewModelDiagnosis" xml:space="preserve">
+    <value>Основний діагноз</value>
+  </data>
+  <data name="EntryHistoryViewModelDoctorSign" xml:space="preserve">
+    <value>Лікар</value>
+  </data>
+  <data name="EntryHistoryViewModelExamination" xml:space="preserve">
+    <value>Об'єктивний стан</value>
+  </data>
+  <data name="EntryHistoryViewModelRecomendations" xml:space="preserve">
+    <value>Рекомендації</value>
+  </data>
+  <data name="EntryHistoryViewModelResearches" xml:space="preserve">
+    <value>Дослідження</value>
+  </data>
+  <data name="ListPatientsViewChoose" xml:space="preserve">
+    <value>Обрати</value>
+  </data>
+  <data name="ListPatientsViewTitle" xml:space="preserve">
+    <value>Пацієнти</value>
+  </data>
+  <data name="LoginPartialGoodAfternoon" xml:space="preserve">
+    <value>Доброго вечора</value>
+  </data>
+  <data name="LoginPartialGoodDay" xml:space="preserve">
+    <value>Доброго дня</value>
+  </data>
+  <data name="LoginPartialGoodMorning" xml:space="preserve">
+    <value>Доброго ранку</value>
+  </data>
+  <data name="LoginPartialGoodNight" xml:space="preserve">
+    <value>Доброї ночі</value>
+  </data>
+  <data name="LoginPartialLogin" xml:space="preserve">
+    <value>Вхід</value>
+  </data>
+  <data name="LoginPartialLogOff" xml:space="preserve">
+    <value>Вийти</value>
+  </data>
+  <data name="LoginPartialRegistrer" xml:space="preserve">
+    <value>Перший раз?</value>
+  </data>
+  <data name="LoginPartialSettings" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="MedUATitle" xml:space="preserve">
+    <value>med.ua</value>
+  </data>
+  <data name="NewEntryViewCancel" xml:space="preserve">
+    <value>Відміна</value>
+  </data>
+  <data name="NewEntryViewSave" xml:space="preserve">
+    <value>Зберегти</value>
+  </data>
+  <data name="PatientHistoryFormAllEntries" xml:space="preserve">
+    <value>Усі записи</value>
+  </data>
+  <data name="PatientHistoryFormMyEntries" xml:space="preserve">
+    <value>Мої записи</value>
+  </data>
+  <data name="PatientHistoryFormTitle" xml:space="preserve">
+    <value>Історія</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Дата народження</value>
+  </data>
+  <data name="PatientListViewModelLastDateVisit" xml:space="preserve">
+    <value>Останній запис</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ім'я</value>
+  </data>
+  <data name="Patronimic" xml:space="preserve">
+    <value>По батькові</value>
+  </data>
+  <data name="PlaceOfBirth" xml:space="preserve">
+    <value>Місце народження</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Прізвище</value>
+  </data>
+  <data name="PatientHistoryFormAddEntry" xml:space="preserve">
+    <value>Додати запис</value>
+  </data>
+  <data name="ConfirmEmailMessageLinkText" xml:space="preserve">
+    <value>цим посиланням</value>
+  </data>
+  <data name="ConfirmEmailMessageStringFormat" xml:space="preserve">
+    <value>Тільки для ДЕМО: Дякую за реєстрацію в системі med.ua. Будь-ласка, перейдіть за {0}, щоб підтвердити Вашу поштову скриньку.</value>
+  </data>
+  <data name="ConfirmEmailTitle" xml:space="preserve">
+    <value>Підтверження поштової скриньки</value>
+  </data>
+  <data name="ConfirmLinkTitle" xml:space="preserve">
+    <value>Підтверження поштової скриньки</value>
+  </data>
+  <data name="EnterMailContinue" xml:space="preserve">
+    <value>Продовжити</value>
+  </data>
+  <data name="EnterMailEnterMailMessage" xml:space="preserve">
+    <value>Вкажіть email адресу, за допомогою якої Вас реєстрували в системі</value>
+  </data>
+  <data name="EnterMailTitle" xml:space="preserve">
+    <value>Зареєструйтеся</value>
+  </data>
+  <data name="ForgotPasswordEmailLink" xml:space="preserve">
+    <value>Готово</value>
+  </data>
+  <data name="ForgotPasswordEnterEmail" xml:space="preserve">
+    <value>Введіть поштову скриньку</value>
+  </data>
+  <data name="ForgotPasswordTitle" xml:space="preserve">
+    <value>Забули пароль?</value>
+  </data>
+  <data name="RegisterViewRegister" xml:space="preserve">
+    <value>Готово</value>
+  </data>
+  <data name="RegisterViewTitle" xml:space="preserve">
+    <value>Реєстрація</value>
+  </data>
+  <data name="ResetPasswordReset" xml:space="preserve">
+    <value>Збросити</value>
+  </data>
+  <data name="ResetPasswordViewTitle" xml:space="preserve">
+    <value>Збросити пароль</value>
+  </data>
+  <data name="ResetPasswordViewResetYourPassword" xml:space="preserve">
+    <value>Збросити пароль</value>
+  </data>
+  <data name="ResetPasswordConfirmationTitle" xml:space="preserve">
+    <value>Ваш пароль був успішно змінений</value>
+  </data>
+  <data name="ChangePasswordViewTitle" xml:space="preserve">
+    <value>Змінити пароль</value>
+  </data>
+  <data name="ErrorViewErrorOccurs" xml:space="preserve">
+    <value>Щось трапилось :(</value>
+  </data>
+  <data name="ErrorViewErrorOccursMessage" xml:space="preserve">
+    <value>Під час Вашого запиту, щось пішло не так. Будь-ласка,спробуйте перезавтажити сторінку</value>
+  </data>
+  <data name="ErrorViewTitle" xml:space="preserve">
+    <value>Помилка</value>
+  </data>
+  <data name="ForgotPasswordConfirmationMessageStringFormat" xml:space="preserve">
+    <value>Тільки для ДЕМО: Будь-ласка, перейдіть за {0}, щоб встановити новий пароль.</value>
+  </data>
+  <data name="ChangePasswordChangePassord" xml:space="preserve">
+    <value>Змінити</value>
+  </data>
+  <data name="ChangePasswordChangeYourPassword" xml:space="preserve">
+    <value>Змініть пароль</value>
+  </data>
+  <data name="ManageViewChangeYourAccountSettings" xml:space="preserve">
+    <value>Змініть налаштування</value>
+  </data>
+  <data name="ManageViewSettings" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="ManageViewChangeYourPassword" xml:space="preserve">
+    <value>Змініть пароль</value>
+  </data>
+  <data name="ManageViewPassword" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="LoginViewLogin" xml:space="preserve">
+    <value>Увійти</value>
+  </data>
+  <data name="LoginViewMessage" xml:space="preserve">
+    <value>Використовуйте Ваш email, який ви вказували для реєстрації.</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Підтвердіть пароль</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="TheMustBeAtLeastCharactersLongStringFormat" xml:space="preserve">
+    <value>{0} має бути не менше ніж {2} символів.</value>
+  </data>
+  <data name="MedicalCode" xml:space="preserve">
+    <value>Медичний код</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Запам'ятати мене?</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Підтвердити новий пароль</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Старий пароль</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Новий пароль</value>
+  </data>
+  <data name="DoctorRegisterControllerLoginInvalidAttempt" xml:space="preserve">
+    <value>Неправильний email або пароль</value>
+  </data>
+  <data name="RequiredErrorMessage" xml:space="preserve">
+    <value>{0} має бути заповненим</value>
+  </data>
+  <data name="EmailAddressInvalidFormat" xml:space="preserve">
+    <value>Email-адреса неправильного формату</value>
+  </data>
+  <data name="ErrorHasOccured" xml:space="preserve">
+    <value>Виникла помилка.</value>
+  </data>
+  <data name="YouPasswordHasBeenChanged" xml:space="preserve">
+    <value>Ваш пароль був змінений.</value>
+  </data>
+  <data name="YouPasswordHasBeenSet" xml:space="preserve">
+    <value>Ваш пароль був встановлений.</value>
+  </data>
+  <data name="PasswordErrorFormat" xml:space="preserve">
+    <value>Невірний формат паролю. Пароль має складатись хоча б з однієї цифри[0-9] або символа, хоча б однієї маленької та великої літери.</value>
+  </data>
+  <data name="ForgotPasswordConfirmationTitle" xml:space="preserve">
+    <value>На Ваш email був відправлений лист. Будь-ласка, перейдіть за посиланням, щоб встановити новий пароль.</value>
+  </data>
+  <data name="ForgotPasswordConfirmationLink" xml:space="preserve">
+    <value>за цим посиланням</value>
+  </data>
+  <data name="ResetPasswordConfirmationLink" xml:space="preserve">
+    <value>увійдіть</value>
+  </data>
+  <data name="ResetPasswordConfirmationMessageStringFormat" xml:space="preserve">
+    <value>Будь-ласка, {0}.</value>
+  </data>
+  <data name="LoginViewTitle" xml:space="preserve">
+    <value>Увійдіть</value>
+  </data>
+  <data name="LoginFooterMessage" xml:space="preserve">
+    <value>Якщо не пам'ятаєте Ваш email, будь-ласка, зв'яжіться з менеджером: +38044-44-44-444</value>
+  </data>
+  <data name="PatientLayoutLookMedicalCard" xml:space="preserve">
+    <value>Переглянути картку</value>
+  </data>
+  <data name="TimeOfBirth" xml:space="preserve">
+    <value>Час народження</value>
+  </data>
+  <data name="PatientProfileViewModelDoctorList" xml:space="preserve">
+    <value>Лікарі</value>
+  </data>
+  <data name="BloodType" xml:space="preserve">
+    <value>Група крові</value>
+  </data>
+  <data name="PatientHistoryFormEmptyHistory" xml:space="preserve">
+    <value>У Вас немає записів</value>
+  </data>
+  <data name="DoctorProfileViewModelPosition" xml:space="preserve">
+    <value>Позиція</value>
+  </data>
+  <data name="DoctorProfileViewModelHospital" xml:space="preserve">
+    <value>Лікарня</value>
+  </data>
+  <data name="DoctorLayoutMyPatient" xml:space="preserve">
+    <value>Мої пацієнти</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Пошук</value>
+  </data>
+  <data name="AddPatientPartialButton" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="SearchResultsPartialAdded" xml:space="preserve">
+    <value>Ваш пацієнт</value>
+  </data>
+  <data name="DoctorLayoutSearchPatient" xml:space="preserve">
+    <value>Пошук пацієнта</value>
+  </data>
+  <data name="SearchResultsPartialNotFound" xml:space="preserve">
+    <value>По вашому запиту нікого не знайдено або пошук не вдовільняє критеріям.</value>
+  </data>
+  <data name="SearchResultsPartialItsYou" xml:space="preserve">
+    <value>Це ви</value>
+  </data>
+  <data name="SearchViewExplanation" xml:space="preserve">
+    <value>Медичний код або ПІП</value>
+  </data>
+</root>

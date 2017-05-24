@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = MedUA.Resources.Resource.ConfirmEmailTitle;
+}
+
+<h2>@ViewBag.Title</h2>
+<div>
+    <p>
+        @string.Format(MedUA.Resources.Resource.ConfirmEmailMessageStringFormat, @Html.ActionLink(MedUA.Resources.Resource.ConfirmEmailMessageLinkText, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" }).ToHtmlString())
+    </p>
+</div>

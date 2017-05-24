@@ -1,0 +1,28 @@
+﻿@using MedUA.DAL
+@using MedUA.Helpers
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin
+@if (!Request.IsAuthenticated)
+{
+    @Html.ActionLink(@MedUA.Resources.Resource.MedUATitle, "Index", "Account", new { area = "" }, new { @class = "navbar-brand" })
+}
+else
+{
+    var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+    var user = userManager.FindById(User.Identity.GetUserId());
+    var userName = $"{user.Surname} {user.Name}";
+    if (User.IsInRole(MedUA.DAL.Roles.Patient))
+    {
+        @Html.ActionLink(userName, "Index", "Patient", new { area = "" }, new { @class = "navbar-brand" })
+        ViewBag.Links = ViewBag.Links ?? new List<MvcHtmlString>();
+        ViewBag.Links.Add(Html.ActionLink(MedUA.Resources.Resource.PatientLayoutLookMedicalCard, "PatientHistory", "Patient"));
+    }
+    else if (User.IsInRole(MedUA.DAL.Roles.Doctor))
+    {
+        @Html.ActionLink(userName, "Index", "Doctor", new { area = "" }, new { @class = "navbar-brand" })
+    }
+    else
+    {
+        @Html.ActionLink(@MedUA.Resources.Resource.MedUATitle, "Index", "Account", new { area = "" }, new { @class = "navbar-brand" })
+    }
+}

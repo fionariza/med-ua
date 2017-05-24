@@ -1,0 +1,16 @@
+﻿@using MedUA.Helpers
+@model MedUA.Models.PatientSearchViewModel
+@{ ViewBag.Title = MedUA.Resources.Resource.Search; }
+@using (Ajax.BeginForm("Search", new { @class = "form-horizontal", role = "form" }, new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "search-table" }))
+{
+    @Html.SearchPatientForm(Html.LabelFor(model => model.SearchString, new { @class = "control-label" }), Html.TextBoxFor(model => model.SearchString, new { @class = "col-md-10 form-control multiline" }))
+    <div class="row">
+        <div class="col-md-2"></div>
+        <input type="submit" class="btn btn-default col-md-10 col-md-offset-2 search-button" value=@MedUA.Resources.Resource.Search />
+    </div>
+}
+<div class="row">
+    <div id="search-table"></div>
+</div>
+@Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")

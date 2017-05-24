@@ -1,0 +1,27 @@
+﻿@model MedUA.Models.DoctorProfileViewModel
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Name, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.Name, new { @class = "col-md-10" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Surname, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.Surname, new { @class = "col-md-10" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Patronimic, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.Patronimic, new { @class = "col-md-10" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Email, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.Email, new { @class = "col-md-10" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Position, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.Position, new { @class = "col-md-10" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Hospital, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.Hospital, new { @class = "col-md-10" })
+</div>

@@ -1,0 +1,4 @@
+﻿Ansver.MVC.Selectize
+https://github.com/selectize/selectize.js
+selectize.js-0.12.4/3
+2017-004-18

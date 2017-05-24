@@ -1,0 +1,28 @@
+﻿@import "../bootstrap3/less/variables.less";
+@import "../bootstrap3/less/mixins.less";
+@import "less/selectize.bootstrap3.less";
+
+
+._face() {
+	margin: .2em;
+	padding: .2em .5em;
+	background-color: #eee;
+	border: solid 1px #ccc;
+	border-radius: .3em;
+	font-size: 10pt;
+	color: @text-color;
+}
+
+
+.selectize-control {
+	&.multi {
+
+		.selectize-input > div {
+			._face();
+
+			&.active {
+				._face();
+			}
+		}
+	}
+}

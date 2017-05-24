@@ -1,0 +1,64 @@
+﻿@using MedUA.Models
+@model List<PatientSearchResultViewModel>
+@if (Model == null || !Model.Any())
+{
+    <h4>@MedUA.Resources.Resource.SearchResultsPartialNotFound</h4>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    @Html.LabelFor(model => item.Surname, new { @class = "control-label col-md-4" })
+                    @Html.DisplayFor(model => item.Surname, new { @class = "control-label col-md-8" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => item.Name, new { @class = "control-label col-md-4" })
+                    @Html.DisplayFor(model => item.Name, new { @class = "control-label col-md-8" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => item.Patronimic, new { @class = "control-label col-md-4" })
+                    @Html.DisplayFor(model => item.Patronimic, new { @class = "control-label col-md-8" })
+                </div>
+                @if (item.Code != null)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => item.Code, new { @class = "control-label col-md-4" })
+                        @Html.DisplayFor(model => item.Code, new { @class = "control-label col-md-8" })
+                    </div>
+                }
+                @if (item.DateOfBirth != null)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => item.DateOfBirth, new { @class = "control-label col-md-4" })
+                        @Html.DisplayFor(model => item.DateOfBirth, new { @class = "control-label col-md-8" })
+                    </div>
+                }
+                @if (item.PlaceOfBirth != null)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => item.PlaceOfBirth, new { @class = "control-label col-md-4" })
+                        @Html.DisplayFor(model => item.PlaceOfBirth, new { @class = "control-label col-md-8" })
+                    </div>
+                }
+
+            </div>
+            <div class="col-md-4">
+                @if (!string.IsNullOrEmpty(item.Status))
+                {
+                    <div class="alert-danger">
+                        @item.Status
+                    </div>
+                }
+                else
+                {
+                    @Html.Partial("AddPatientPartial", new AddPatientViewModel() { Id = item.Id })
+                }
+            </div>
+        </div>
+        <hr />
+    }
+}

@@ -1,0 +1,45 @@
+﻿@model MedUA.Models.PatientProfileViewModel
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Name, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.Name, new { @class = "col-md-10" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Surname, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.Surname, new { @class = "col-md-10" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Patronimic, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.Patronimic, new { @class = "col-md-10" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.DateOfBirth, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.DateOfBirth, new { @class = "col-md-10" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.TimeOfBirth, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.TimeOfBirth, new { @class = "col-md-10" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.BloodType, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.BloodType, new { @class = "col-md-10" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Code, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.Code, new { @class = "col-md-10" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Email, new { @class = "col-md-2" })
+    @Html.DisplayFor(model => Model.Email, new { @class = "col-md-10" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.DoctorSignList, new { @class = "col-md-2" })
+    <div class="col-md-10">
+        @foreach (var doctor in Model.DoctorSignList)
+        {
+            <div class="row">
+                @Html.ActionLink(doctor.DoctorSign, "DoctorProfile", new { doctorId = doctor.DoctorId }, new { @class = "col-md-10" })
+            </div>
+        }
+    </div>
+</div>

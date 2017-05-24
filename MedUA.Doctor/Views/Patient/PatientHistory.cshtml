@@ -1,0 +1,14 @@
+﻿@model MedUA.Models.EntryHistoryViewModelList
+@{
+    ViewBag.Title = MedUA.Resources.Resource.PatientHistoryFormTitle;
+}
+@if (Model.List == null || !Model.List.Any())
+{
+    <h2>@MedUA.Resources.Resource.PatientHistoryFormEmptyHistory</h2>
+}
+else
+{
+    <div id="patients-id">
+        @{ Html.RenderPartial("PatientHistoryPartial", Model.List);}
+    </div>
+}
