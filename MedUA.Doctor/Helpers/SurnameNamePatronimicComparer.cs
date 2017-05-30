@@ -1,31 +1,38 @@
 ﻿namespace MedUA.Helpers
 {
     using System;
+    using System.IO;
     using System.Linq;
 
-    using MedUA.DAL;
-
-    public class SurnameNamePatronimicRetriever
+    public class SurnameNamePatronimicRetriever : ISurnameNamePatronimicRetriever
     {
-        public Func<PatientUser, bool> RetrieveFunc(string searchString)
+        public IUserComparable RetrieveFunc(string searchString)
         {
-            var splits = searchString.Split(' ').ToList();
+            var splits = searchString.Split(' ', '\t').ToList();
             splits.RemoveAll(p => string.IsNullOrEmpty(p.Trim()));
-            if (splits.Count < 3)
-            {
-                return null;
-            }
-            return
-                user =>
-                    GetComparer(user.Surname, splits[0]) 
-                    && GetComparer(user.Name, splits[1]) 
-                    && GetComparer(user.Partonimic, splits[2])
-                    && (splits.Count!= 4 || GetComparer(user.PlaceOfBirth, splits[3]));
+            return splits.Count < 3 ? null : new UserComparable() { Surname = splits[0], Name = splits[1], Patronimic = splits[2], PlaceOfBirth = splits.Count == 4 ? splits[3] : null };
         }
 
-        private static bool GetComparer(string user, string split)
+
+        public sealed class UserComparable : IUserComparable
         {
-            return string.Compare(user, split.Trim(), StringComparison.OrdinalIgnoreCase) == 0;
+            public string Surname { get; set; }
+            public string Name { get; set; }
+            public string Patronimic { get; set; }
+            public string PlaceOfBirth { get; set; }
+            private bool GetComparer(string user, string split)
+            {
+                return string.Compare(user, split.Trim(), StringComparison.OrdinalIgnoreCase) == 0;
+            }
+
+            public bool Compare(string surname, string name, string patronimic, string placeOfBirth)
+            {
+               return GetComparer(Surname, surname) 
+                    && GetComparer(Name, name)
+                    && GetComparer(Patronimic, patronimic)
+                    && (PlaceOfBirth == null || GetComparer(PlaceOfBirth, placeOfBirth));
+            }
+            
         }
     }
 }

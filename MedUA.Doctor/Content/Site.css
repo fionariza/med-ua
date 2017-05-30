@@ -4,8 +4,7 @@
 }
 
 /* Set padding to keep content from hitting the edges */
-.body-content 
-{
+.body-content {
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 15px;
@@ -14,6 +13,7 @@
 .add-section-form {
     padding-top: 15px;
 }
+
 .bordered-link {
     border: white;
     border-style: solid;
@@ -34,6 +34,20 @@ selectize-input {
     max-width: 280px;
 }
 
+.navbar-inverse {
+    
+    background-color:steelblue;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+.navbar-nav > li > a {
+    color: white;
+}
+    .navbar-inverse .navbar-brand {
+        color: white;
+    }
+
 .stretch-height {
     height: 100%;
 }
@@ -49,9 +63,8 @@ selectize-input {
     border-bottom-width: 1px;
     padding: 20px;
 }
-.parents-ids
-.add 
-{
+
+.parents-ids .add {
     padding: 20px;
 }
 

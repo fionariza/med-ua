@@ -197,6 +197,10 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Helpers\BloodTypeSelectorNames.cs" />
+    <Compile Include="Interfaces\ISurnameNamePatronimicRetriever.cs" />
+    <Compile Include="Interfaces\IUserComparable.cs" />
+    <Compile Include="Helpers\SearchStringSpliter.cs" />
     <Compile Include="Helpers\SurnameNamePatronimicComparer.cs" />
     <Compile Include="Models\AddPatientViewModel.cs" />
     <Compile Include="Models\DoctorProfileViewModel.cs" />
@@ -212,8 +216,8 @@
     </Compile>
     <Compile Include="Helpers\BloodTypeSelector.cs" />
     <Compile Include="Helpers\CultureAwareControllerActivator.cs" />
-    <Compile Include="Helpers\HtmlHelperExtensions.cs" />
-    <Compile Include="Helpers\IdentityExtensions.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Extensions\IdentityExtensions.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EnterMailViewModel.cs" />
     <Compile Include="Models\EntryHistoryViewModelList.cs" />
@@ -245,6 +249,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\doctor-woman.jpg" />
+    <Content Include="Images\doctor-man.jpg" />
+    <Content Include="Images\patient-man.jpg" />
+    <Content Include="Images\patient-woman.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
@@ -259,6 +267,8 @@
     <Content Include="Content\selectize\less\plugins\optgroup_columns.less" />
     <Content Include="Content\selectize\less\plugins\dropdown_header.less" />
     <Content Include="Content\selectize\less\plugins\drag_drop.less" />
+    <Content Include="Controllers\ControllersDiagram.cd" />
+    <Content Include="Controllers\BaseApplicationUserController.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -308,7 +318,6 @@
     <Content Include="Views\Doctor\PatientHistoryPartial.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\RegisterChoose.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Patient\Index.cshtml" />
     <Content Include="Views\Patient\PatientHistoryPartial.cshtml" />
     <Content Include="Views\Patient\PatientHistory.cshtml" />

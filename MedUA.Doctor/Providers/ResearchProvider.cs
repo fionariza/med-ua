@@ -21,18 +21,14 @@
         }
         
 
-        public IEnumerable<SelectListItem> GetResearches(IEnumerable<string> selectedIds = null)
+        public IEnumerable<SelectListItem> GetResearches()
         {
-            var select = selectedIds != null && selectedIds.Any();
-            var hashSet = select ? new HashSet<string>(selectedIds) : null;
             return researches.Select(
                 x =>
                     new SelectListItem()
                     {
                         Text = x.Name,
-                        Value = x.Id.ToString(),
-                        Selected = select && hashSet.Contains(x.Id.ToString())
-                    }).ToList();
+                        Value = x.Id.ToString()}).ToList();
         }
     }
 }

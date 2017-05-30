@@ -133,20 +133,29 @@ namespace MedUA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дякую за реєстрацію в системі med.ua. Будь-ласка, перевірте вашу поштову скриньку. Якщо ваша скринька зареєстрована, ми надіслали Вам листа..
+        /// </summary>
+        public static string ConfirmEmailMessage {
+            get {
+                return ResourceManager.GetString("ConfirmEmailMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тільки для ДЕМО: Будь-ласка, перейдіть за {0}, щоб підтвердити Вашу поштову скриньку..
+        /// </summary>
+        public static string ConfirmEmailMessageLinkFormat {
+            get {
+                return ResourceManager.GetString("ConfirmEmailMessageLinkFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to цим посиланням.
         /// </summary>
         public static string ConfirmEmailMessageLinkText {
             get {
                 return ResourceManager.GetString("ConfirmEmailMessageLinkText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Тільки для ДЕМО: Дякую за реєстрацію в системі med.ua. Будь-ласка, перейдіть за {0}, щоб підтвердити Вашу поштову скриньку..
-        /// </summary>
-        public static string ConfirmEmailMessageStringFormat {
-            get {
-                return ResourceManager.GetString("ConfirmEmailMessageStringFormat", resourceCulture);
             }
         }
         

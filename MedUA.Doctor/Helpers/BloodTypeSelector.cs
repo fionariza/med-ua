@@ -11,21 +11,21 @@
             switch (bloodType)
             {
                 case DAL.BloodType.OPlus:
-                    return "I+";
+                    return BloodTypeSelectorNames.OPlus;
                 case DAL.BloodType.APlus:
-                    return "II+";
+                    return BloodTypeSelectorNames.APlus;
                 case DAL.BloodType.BPlus:
-                    return "III+";
+                    return BloodTypeSelectorNames.BPlus;
                 case DAL.BloodType.ABPlus:
-                    return "VI+";
+                    return BloodTypeSelectorNames.ABPlus;
                 case DAL.BloodType.OMinus:
-                    return "I-";
+                    return BloodTypeSelectorNames.OMinus;
                 case DAL.BloodType.AMinus:
-                    return "II-";
+                    return BloodTypeSelectorNames.AMinus;
                 case DAL.BloodType.BMinus:
-                    return "III-";
+                    return BloodTypeSelectorNames.BMinus;
                 case DAL.BloodType.ABMinus:
-                    return "VI-";
+                    return BloodTypeSelectorNames.ABMinus;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

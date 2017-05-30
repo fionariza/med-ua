@@ -6,6 +6,7 @@
     using System.Linq;
 
     using MedUA.DAL;
+    using MedUA.DAL.EntityModel;
     using MedUA.Helpers;
     using MedUA.Resources;
 
@@ -42,6 +43,9 @@
 
         [Display(ResourceType = typeof(Resource), Name = ("Email"))]
         public string Email { get; set; }
+
+        public string ImageSrc { get; set; }
+
         public static PatientProfileViewModel Convert(PatientUser user)
         {
             return new PatientProfileViewModel()
@@ -55,8 +59,9 @@
                        DateOfBirth = user.DateOfBirth.ToString("d"),
                        TimeOfBirth = user.DateOfBirth.ToString("t"),
                        PlaceOfBirth = user.PlaceOfBirth,
-                       Email = user.Email
-                   };
+                       Email = user.Email,
+                       ImageSrc = user.MaleFemale == MaleFemale.Female ? "/Images/patient-woman.jpg" : "/Images/patient-man.jpg",
+            };
         }
         
     }

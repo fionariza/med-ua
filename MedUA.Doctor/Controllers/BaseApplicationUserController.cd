@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MedUA.Controllers.BaseApplicationUserController">
+    <Position X="3.75" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAEAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\BaseApplicationUserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedUA.Controllers.DoctorController">
+    <Position X="1.75" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAJAACAAAAAAAAAAEAAEAAAAAEAAAAgAIA=</HashCode>
+      <FileName>Controllers\DoctorController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedUA.Controllers.PatientController">
+    <Position X="6.25" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\PatientController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

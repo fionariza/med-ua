@@ -17,7 +17,6 @@
 
     public class ApplicationDataProvider : IApplicationDataProvider
     {
-        private const int CodeLength = 18;
         private readonly ApplicationDbContext context;
 
         public ApplicationDataProvider(ApplicationDbContext context)
@@ -88,49 +87,25 @@
 
         public Task<List<PatientSearchResultViewModel>> GetPatientsSearch(ApplicationUser doctorId, PatientSearchViewModel patientSearch)
         {
-            return Task<List<PatientSearchResultViewModel>>.Factory.StartNew(
-                (() =>
-                    {
-                        var searchString = patientSearch.SearchString?.Trim();
-                        if (string.IsNullOrEmpty(searchString))
-                        {
-                            return null;
-                        }
-
-                        var intRegex = new Regex("^[0-9]+$");
-                        if (intRegex.IsMatch(searchString) && patientSearch.SearchString.Length == CodeLength)
-                        {
-                            return
-                                this.context.Patients.Where(p => p.Code == searchString)
-                                    .ToList()
-                                    .Select(
-                                        p =>PatientSearchResultViewModel.Convert(
-                                                p,
-                                                GetStatus(doctorId, p),
-                                                searchString))
-                                    .ToList();
-                        }
-                        var func = new SurnameNamePatronimicRetriever().RetrieveFunc(searchString);
-                        if (func == null)
-                        {
-                            return null;
-                        }
-                        return
-                            this.context.Patients.Include(p => p.Doctors)
-                                .ToList()
-                                .Where(func.Invoke)
-                                .Select(
-                                    p =>
-                                        PatientSearchResultViewModel.Convert(
-                                            p,
-                                            GetStatus(doctorId, p)))
-                                .ToList();
-                    }));
+            return Task<List<PatientSearchResultViewModel>>.Factory.StartNew(() =>
+            {
+                var splilter = new SearchStringSpliter(new SurnameNamePatronimicRetriever());
+                Func<PatientUser, bool> searchPattern = null;
+                string medicalCode = null;
+                if (!splilter.Split(patientSearch.SearchString, out searchPattern, out medicalCode))
+                {
+                    return null;
+                }
+                return this.context.Patients.Include(d => d.Doctors)
+                        .Where(searchPattern.Invoke)
+                        .Select(p => PatientSearchResultViewModel.Convert(p, GetStatus(doctorId, p), medicalCode))
+                        .ToList();
+            });
         }
 
         private string GetStatus(ApplicationUser doctor, PatientUser patientUser)
         {
-            if (patientUser.Doctors.Any(x=>x.Id == doctor.Id))
+            if (patientUser.Doctors.Any(x => x.Id == doctor.Id))
             {
                 return Resources.Resource.SearchResultsPartialAdded;
             }

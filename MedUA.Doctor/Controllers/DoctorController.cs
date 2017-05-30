@@ -1,22 +1,12 @@
 ﻿namespace MedUA.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Linq;
-    using System.Linq.Expressions;
     using System.Threading.Tasks;
-    using System.Web;
     using System.Web.Mvc;
-    using System.Web.WebSockets;
 
     using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.Owin;
 
     using MedUA.DAL;
     using MedUA.Data;
-
-    using Microsoft.Ajax.Utilities;
 
     using Models;
 
@@ -100,7 +90,7 @@
             }
             var partialView = this.PartialView("NewEntryPartial", model);
             partialView.ViewData = this.ViewData;
-            partialView.ViewBag.ResearchesList = DataProvider.GetResearchProvider().GetResearches(model.ResearchIds);
+            partialView.ViewBag.ResearchesList = DataProvider.GetResearchProvider().GetResearches();
             return partialView;
         }
 

@@ -4,10 +4,12 @@
     using System.Globalization;
 
     using MedUA.DAL;
+    using MedUA.DAL.EntityModel;
     using MedUA.Resources;
 
     public class DoctorProfileViewModel
     {
+        public string ImageSrc { get; set; }
 
         [Display(ResourceType = typeof(Resource), Name = ("Name"))]
         public string Name { get; set; }
@@ -40,6 +42,7 @@
                 DateOfBirth = user.DateOfBirth.ToString("d", CultureInfo.CurrentCulture),
                 Hospital = $"{user.CurrentHospital.Name}. {user.CurrentHospital.Address}",
                 Position = user.Position,
+                ImageSrc = user.MaleFemale == MaleFemale.Female ? "/Images/doctor-woman.jpg" : "/Images/doctor-man.jpg",
                 Email = user.Email
             };
         }

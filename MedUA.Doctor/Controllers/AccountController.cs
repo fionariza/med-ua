@@ -28,9 +28,13 @@ namespace MedUA.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return this.View();
+            if (User.Identity.IsAuthenticated)
+            {
+               return await RedirectToRoleController(User.Identity.GetUserId());
+            }
+            return this.View("Login");
         }
 
         //
@@ -123,8 +127,8 @@ namespace MedUA.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByEmailAsync(model.Email);
-                var link = user == null ? null : await GetCallbackUrl(user);
-                return this.View("ConfirmLink", new ConfirmLinkModel() { Link = link });
+                var message = user == null ? null : await GetCallbackUrl(user);
+                return this.View("ConfirmLink", new ConfirmLinkModel() { Link = message });
             }
 
             // If we got this far, something failed, redisplay form
@@ -136,7 +140,7 @@ namespace MedUA.Controllers
             string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
             var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
             var htmlCallbackUrl = "<a href=\"" + callbackUrl + "\">" + Resource.ConfirmEmailMessageLinkText + "</a>";
-            return string.Format(Resource.ConfirmEmailMessageStringFormat, htmlCallbackUrl);
+            return string.Format(Resource.ConfirmEmailMessageLinkFormat, htmlCallbackUrl);
         }
 
         [AllowAnonymous]

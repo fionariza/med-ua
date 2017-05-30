@@ -5,6 +5,6 @@ namespace MedUA.Data
 {
     public interface IResearchProvider
     {
-        IEnumerable<SelectListItem> GetResearches(IEnumerable<string> selectedIds = null);
+        IEnumerable<SelectListItem> GetResearches();
     }
 }

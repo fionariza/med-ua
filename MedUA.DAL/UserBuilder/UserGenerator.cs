@@ -19,12 +19,20 @@
         private readonly ApplicationDbContext context;
 
         private readonly ApplicationUserManager userManager;
+
+        /// <summary>
+        /// Конструктор классу <see cref="UserGenerator"/>
+        /// </summary>
+        /// <param name="context">Контекст</param>
         public UserGenerator(ApplicationDbContext context)
         {
             this.context = context;
             this.userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
         }
 
+       /// <summary>
+       /// Генерує дані в талицях
+       /// </summary>
         public void Generate()
         {
             var entries = new EntriesGenerator().DoctorPosition();
@@ -39,6 +47,9 @@
             this.RegisterDoctors(entries, placeOfBirth, list);
         }
 
+        /// <summary>
+        /// Реєстрація ролей
+        /// </summary>
         private void RegisterRoles()
         {
             if (!context.Roles.Any(x => x.Name == Roles.Doctor))
@@ -51,6 +62,10 @@
             }
         }
 
+        /// <summary>
+        /// Реєстрація досліджень
+        /// </summary>
+        /// <param name="researches">Назви досліджень</param>
         private void RegisterResearches(IEnumerable<string> researches)
         {
             foreach (var research in researches)
@@ -62,6 +77,13 @@
             }
         }
 
+        /// <summary>
+        /// Реєстрація лікарів
+        /// </summary>
+        /// <param name="doctorList">Список позицій та записів для цих позицій</param>
+        /// <param name="places">Список міст</param>
+        /// <param name="ids">Список ідентифікаторів лікарів в системі</param>
+        /// <returns></returns>
         private IList<string> RegisterDoctors(Dictionary<string, Entry[]> doctorList, IList<string> places, IList<string> ids)
         {
             var doctrorUserBuilder = new DoctorUserBuilder(this.context, this.userManager);
@@ -96,7 +118,12 @@
             return list;
         }
 
-
+        /// <summary>
+        /// Додати або відновити записи лікарів
+        /// </summary>
+        /// <param name="doctorUser">Лікар</param>
+        /// <param name="doctorsIds">Ідентифікатори пацієнтів-лікарів</param>
+        /// <param name="entries">Записи</param>
         private void AddOrUpdatesEntries(DoctorUser doctorUser, string[] doctorsIds, IEnumerable<Entry> entries)
         {
             if (this.context.Entries.Count(x => x.Doctor.Id == doctorUser.Id) > 1)
@@ -115,6 +142,13 @@
             }
         }
 
+        /// <summary>
+        /// Реєстрація пацієнтів
+        /// </summary>
+        /// <param name="namesAndAliaseses">Імена, прізвища, по батькові</param>
+        /// <param name="placeOfBirth">Місця народження</param>
+        /// <param name="maleFemale">Стать</param>
+        /// <returns></returns>
         private IList<string> RegisterPatients(IEnumerable<NamesAndAliases> namesAndAliaseses, IList<string> placeOfBirth, MaleFemale maleFemale)
         {
             var patientBuilder = new PatientUserBuilder(this.context, this.userManager);
@@ -145,7 +179,10 @@
             return list;
         }
 
-        
+        /// <summary>
+        /// Генерує випадкову дату народження 
+        /// </summary>
+        /// <returns>Дату народження</returns>
         private DateTime GenerateRandomDateBirth()
         {
             var random = new Random();

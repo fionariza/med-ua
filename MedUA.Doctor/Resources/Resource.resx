@@ -222,8 +222,8 @@
   <data name="ConfirmEmailMessageLinkText" xml:space="preserve">
     <value>цим посиланням</value>
   </data>
-  <data name="ConfirmEmailMessageStringFormat" xml:space="preserve">
-    <value>Тільки для ДЕМО: Дякую за реєстрацію в системі med.ua. Будь-ласка, перейдіть за {0}, щоб підтвердити Вашу поштову скриньку.</value>
+  <data name="ConfirmEmailMessage" xml:space="preserve">
+    <value>Дякую за реєстрацію в системі med.ua. Будь-ласка, перевірте вашу поштову скриньку. Якщо ваша скринька зареєстрована, ми надіслали Вам листа.</value>
   </data>
   <data name="ConfirmEmailTitle" xml:space="preserve">
     <value>Підтверження поштової скриньки</value>
@@ -416,5 +416,8 @@
   </data>
   <data name="SearchViewExplanation" xml:space="preserve">
     <value>Медичний код або ПІП</value>
+  </data>
+  <data name="ConfirmEmailMessageLinkFormat" xml:space="preserve">
+    <value>Тільки для ДЕМО: Будь-ласка, перейдіть за {0}, щоб підтвердити Вашу поштову скриньку.</value>
   </data>
 </root>

@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MedUA.Service.Tests
+namespace UnitTests
 {
     [TestClass]
-    public class EmailServiceRuntimeTest
+    public class UnitTest1
     {
         [TestMethod]
-        public void SendMessageAsync()
+        public void TestMethod1()
         {
         }
     }
