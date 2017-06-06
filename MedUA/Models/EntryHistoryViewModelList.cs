@@ -10,5 +10,7 @@
         public IEnumerable<SelectListItem> ResearchList { get; set; }
 
         public string PatientId { get; set; }
+
+        public int Page { get; set; }
     }
 }

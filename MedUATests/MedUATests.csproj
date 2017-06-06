@@ -123,10 +123,6 @@
       <Project>{99731F74-67C7-4C1E-BDE4-23C7285CF725}</Project>
       <Name>MedUA.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MedUA.Doctor\MedUA.csproj">
-      <Project>{F5C0AE12-F91C-433C-A46D-52863F5E9B50}</Project>
-      <Name>MedUA</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

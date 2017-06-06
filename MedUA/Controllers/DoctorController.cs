@@ -1,5 +1,6 @@
 ﻿namespace MedUA.Controllers
 {
+    using System.IO;
     using System.Threading.Tasks;
     using System.Web.Mvc;
 
@@ -7,8 +8,12 @@
 
     using MedUA.DAL;
     using MedUA.Data;
+    using MedUA.Resources;
 
     using Models;
+
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
 
     [Authorize(Roles = Roles.Doctor)]
     public class DoctorController : BaseApplicationUserController
@@ -52,15 +57,25 @@
         }
 
         [HttpPost]
-        public PartialViewResult PatientHistoryCurrentDoctor(string patientId)
-        {
-            return this.PartialView("PatientHistoryPartial", this.DataProvider.GetListEntries(patientId, User.Identity.GetUserId()));
-        }
-
-        [HttpPost]
         public PartialViewResult PatientHistory(string patientId)
         {
-            return this.PartialView("PatientHistoryPartial", this.DataProvider.GetListEntries(patientId));
+            using (var req = Request.InputStream)
+            {
+                req.Seek(0, SeekOrigin.Begin);
+                using (var streamReader = new StreamReader(req))
+                {
+                    var json = streamReader.ReadToEnd();
+                    var patientHistory = JsonConvert.DeserializeObject<PatientHistoryGetViewModel>(json);
+                    var skip = patientHistory.Skip * PageConstants.PageCount;
+                    return this.PartialView(
+                        "PatientHistoryPartial",
+                        this.DataProvider.GetListEntries(
+                            patientId,
+                            doctorId: patientHistory.FilterDoctor ? User.Identity.GetUserId() : null,
+                            take: patientHistory.Page * PageConstants.PageCount - skip,
+                            skip: skip));
+                }
+            }
         }
 
         [HttpGet]
@@ -83,15 +98,14 @@
             if (ModelState.IsValid)
             {
                 model.DoctorId = User.Identity.GetUserId();
-                if (DataProvider.SaveEntry(model))
+                var entry = DataProvider.SaveEntry(model);
+                if (entry != null)
                 {
-                    return this.PartialView("NewEntryPartial", null);
+                    return this.PartialView("PatientHistoryPartial", new [] { EntryHistoryViewModel.Convert(entry) });
                 }
             }
-            var partialView = this.PartialView("NewEntryPartial", model);
-            partialView.ViewData = this.ViewData;
-            partialView.ViewBag.ResearchesList = DataProvider.GetResearchProvider().GetResearches();
-            return partialView;
+
+            return null;
         }
 
         [HttpGet]

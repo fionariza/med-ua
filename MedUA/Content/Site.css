@@ -3,6 +3,10 @@
     padding-bottom: 20px;
 }
 
+a {
+    cursor: pointer;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -10,9 +14,9 @@
     padding-top: 15px;
 }
 
-.add-section-form {
+/*.add-section-form {
     padding-top: 15px;
-}
+}*/
 
 .bordered-link {
     border: white;
@@ -64,9 +68,9 @@ selectize-input {
     padding: 20px;
 }
 
-.parents-ids .add {
+/*.parents-ids .add {
     padding: 20px;
-}
+}*/
 
 .search-button {
     margin: 20px 0px 20px 0px;

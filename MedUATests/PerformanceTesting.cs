@@ -23,12 +23,12 @@ namespace MedUATests
     public class PerformanceTesting
     {
         private static int count;
-        
+
         private static string FileName;
 
         private static CsvWriter csvHelper;
 
-        private int _count = 0;
+        private int _count = 10;
 
         private object lockObject = new object();
 
@@ -200,7 +200,7 @@ namespace MedUATests
                     {
                         var result = CreateSut().SaveEntry(entryModel);
                         Count();
-                        return result;
+                        return result != null;
                     });
                 PerformTesting("Save entry", method);
             }

@@ -3,7 +3,6 @@
     using System;
 
     using MedUA.DAL;
-    //TODO::Localization
     public static class BloodTypeSelector
     {
         public static string GetName(BloodType bloodType)

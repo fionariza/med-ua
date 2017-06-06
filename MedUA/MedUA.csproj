@@ -197,6 +197,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Resources\PageConstants.cs" />
     <Compile Include="Helpers\BloodTypeSelectorNames.cs" />
     <Compile Include="Interfaces\ISurnameNamePatronimicRetriever.cs" />
     <Compile Include="Interfaces\IUserComparable.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Models\AddPatientViewModel.cs" />
     <Compile Include="Models\DoctorProfileViewModel.cs" />
     <Compile Include="Models\DoctorSignViewModel.cs" />
+    <Compile Include="Models\PatientHistoryGetViewModel.cs" />
     <Compile Include="Models\PatientSearchResultViewModel.cs" />
     <Compile Include="Models\PatientSearchViewModel.cs" />
     <Compile Include="Providers\ApplicationDataProvider.cs" />
@@ -327,6 +329,7 @@
     <Content Include="Views\Doctor\Search.cshtml" />
     <Content Include="Views\Doctor\SearchResultsPartial.cshtml" />
     <Content Include="Views\Doctor\AddPatientPartial.cshtml" />
+    <Content Include="Views\Doctor\NewResearchPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -351,8 +354,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Resource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

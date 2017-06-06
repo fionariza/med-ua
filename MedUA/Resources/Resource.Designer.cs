@@ -709,7 +709,7 @@ namespace MedUA.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Усі записи.
+        ///   Looks up a localized string similar to Показати записи усіх лікарів.
         /// </summary>
         public static string PatientHistoryFormAllEntries {
             get {
@@ -921,6 +921,15 @@ namespace MedUA.Resources {
         public static string SearchViewExplanation {
             get {
                 return ResourceManager.GetString("SearchViewExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Показати більше.
+        /// </summary>
+        public static string ShowMoreEntriesLink {
+            get {
+                return ResourceManager.GetString("ShowMoreEntriesLink", resourceCulture);
             }
         }
         

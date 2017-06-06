@@ -1,0 +1,95 @@
+﻿@using System.Web.Mvc.Html
+@using MedUA.Models
+
+@model EntryHistoryViewModelList
+@{
+    ViewBag.Title = MedUA.Resources.Resource.PatientHistoryFormTitle;
+}
+@Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+<div id="patientHistory">
+    <div class="col-md-10">
+        <a id="addEntryLink" onclick="ShowAddSection()">@MedUA.Resources.Resource.PatientHistoryFormAddEntry</a>
+    </div>
+    <div class="col-md-2">
+        <a id="showAllEntries" class="patient-history-link">@MedUA.Resources.Resource.PatientHistoryFormAllEntries</a>
+        <a id="showEntries" class="patient-history-link" style="display:none">@MedUA.Resources.Resource.PatientHistoryFormMyEntries</a>
+    </div>
+    @*<div class="add-section-form">*@
+        <div id="add-section"  style="display:none">
+            @{ Html.RenderPartial("NewEntryPartial", new EntryHistoryViewModel() { TimeStampDateTime = DateTime.Now, PatientId = Model.PatientId }, new ViewDataDictionary() { { "ResearchesList", Model.ResearchList } }); }
+        </div>
+    @*</div>*@
+    <div id="patients-id">
+        @{ Html.RenderPartial("PatientHistoryPartial", Model.List);}
+    </div>
+    <input type="hidden" id="direction" value="1" />
+    <input type="hidden" id="filteredByDoctor" value="true" />
+
+    <a id="showMoreLink">@MedUA.Resources.Resource.ShowMoreEntriesLink</a>
+</div>
+<script>
+    $("#showAllEntries").click(function () {
+        send(false, CurrentPage(), 0);
+        $('.patient-history-link').toggle();
+        $('#filteredByDoctor').val(false);
+    });
+
+    $("#showEntries").click(function () {
+        send(true, CurrentPage(), 0);
+        $('.patient-history-link').toggle();
+        $('#filteredByDoctor').val(true);
+    });
+    $("#showMoreLink").click(function () {
+        debugger;
+        var page = CurrentPage();
+        send(IsFiltered(), page + 1, page);
+    });
+
+    function CurrentPage() {
+        var value = $('#direction').val();
+        return parseInt(value);
+    }
+    function IsFiltered() {
+        var value = $('#filteredByDoctor').val();
+        return value;
+    }
+
+    function SavedEntrySucceed(html) {
+        $('#patients-id').prepend($(html));
+        HideAddSection();
+    }
+
+    function send(filterDoctor, page, skip) {
+        debugger;
+        var ajaxUrl = '@Url.Action("PatientHistory", "Doctor", new { patientId  = Model.PatientId})';
+
+        $.ajax({
+            url: ajaxUrl,
+            type: "POST",
+            data: JSON.stringify({ FilterDoctor: filterDoctor, Page: page, Skip: skip }),
+            dataType: "html",
+            success: function (msg) {
+                if (skip === 0) {
+                    $("#patients-id").html(msg);
+                }
+                else {
+                    $('#patients-id').append($(msg));
+                    $('#direction').val(page);
+                }
+            },
+            error: function (msg) { console.log(msg); }
+        });
+    }
+    function HideAddSection() {
+        debugger;
+        $('#add-section').hide();
+        $('#addEntryLink').show();
+    }
+    function ShowAddSection() {
+        debugger;
+        $('#add-section').show();
+        $('#addEntryLink').hide();
+    }
+
+</script>

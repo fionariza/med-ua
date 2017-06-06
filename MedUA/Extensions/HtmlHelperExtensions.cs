@@ -19,10 +19,11 @@
 
         public static MvcHtmlString PatientHistory(this HtmlHelper<EntryHistoryViewModel> htmlHelper, MvcHtmlString name, MvcHtmlString mvcHtmlString)
         {
-            var value = "<div class='form-group'>" +
-              "<div class='col-md-2 control-label'>" + name.ToHtmlString() + ":</div>" +
-                  mvcHtmlString.ToHtmlString() +
-               "</div>";
+            //var value = "<div class='form-group'>" +
+            //  "<div class='col-md-2 control-label'>" + name.ToHtmlString() + ":</div>" +
+            //      mvcHtmlString.ToHtmlString() +
+            //   "</div>";
+            var value = "<div class='form-group'>" + name.ToHtmlString() + mvcHtmlString.ToHtmlString() + "</div>";
             return new MvcHtmlString(value);
         }
 

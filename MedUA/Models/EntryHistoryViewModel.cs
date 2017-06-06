@@ -36,8 +36,8 @@
         [Display(ResourceType = typeof(Resource), Name = "EntryHistoryViewModelRecomendations")]
         public string Recomendations { get; set; }
         
-        [Display(ResourceType = typeof(Resource), Name = "EntryHistoryViewModelResearches")]
-        public IEnumerable<string> ResearchIds { get; set; }
+        //[Display(ResourceType = typeof(Resource), Name = "EntryHistoryViewModelResearches")]
+        //public IEnumerable<string> ResearchIds { get; set; }
 
         [Display(ResourceType = typeof(Resource), Name = "EntryHistoryViewModelDoctorSign")]
         public string DoctorSign { get; set; }
@@ -51,7 +51,7 @@
                 Diagnosis = arg.Diagnosis,
                 Examination = arg.Examination,
                 Recomendations = arg.Recomendations,
-                ResearchIds = arg.Researches.Select(x => x.Name).ToList(),
+                //ResearchIds = arg.Researches.Select(x => x.Name).ToList(),
                 TimeStampDateTime = arg.TimeStamp,
                 DoctorSign = string.Format(CultureInfo.CurrentCulture, "{0} {1}, {2}", arg.Doctor.Surname, arg.Doctor.Name, arg.Doctor.Position),
                 DoctorId = arg.Doctor.Id,
@@ -59,7 +59,7 @@
             };
         }
 
-        public static Entry ConvertBack(EntryHistoryViewModel model, ICollection<Research> researches, DoctorUser doctorUser, PatientUser patientUser)
+        public static Entry ConvertBack(EntryHistoryViewModel model, /*ICollection<Research> researches, */DoctorUser doctorUser, PatientUser patientUser)
         {
             var entry = new Entry
                         {
@@ -67,7 +67,7 @@
                             Diagnosis = model.Diagnosis,
                             Examination = model.Examination,
                             Recomendations = model.Recomendations,
-                            Researches = researches,
+                            //Researches = researches,
                             TimeStamp = model.TimeStampDateTime,
                             Doctor = doctorUser,
                             Patient = patientUser

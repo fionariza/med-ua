@@ -11,6 +11,7 @@
     using MedUA.DAL;
     using MedUA.Helpers;
     using MedUA.Models;
+    using MedUA.Resources;
 
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
@@ -18,7 +19,7 @@
     public class ApplicationDataProvider : IApplicationDataProvider
     {
         private readonly ApplicationDbContext context;
-
+        
         public ApplicationDataProvider(ApplicationDbContext context)
         {
             this.context = context;
@@ -40,38 +41,47 @@
 
         }
 
-        public IList<EntryHistoryViewModel> GetListEntries(string patientId)
+        public IList<EntryHistoryViewModel> GetListEntries(string patientId, string doctorId = null, int take = PageConstants.PageCount, int skip = 0)
         {
             var patient = this.context.Patients.Include(x => x.Entries).First(x => x.Id == patientId);
-            return patient.Entries.Select(EntryHistoryViewModel.Convert).ToList();
+            var count = patient.Entries.Count;
+            if (skip >= count)
+            {
+                return new List<EntryHistoryViewModel>();
+            }
+            if (take + skip > count)
+            {
+                take = count - skip;
+            }
+            var entries = string.IsNullOrEmpty(doctorId) ? patient.Entries : patient.Entries.Where(e => e.Doctor.Id == doctorId);
+            return entries
+                .OrderByDescending(x=>x.TimeStamp)
+                .Skip(skip)
+                .Take(take)
+                .Select(EntryHistoryViewModel.Convert).ToList();
 
         }
 
-        public IList<EntryHistoryViewModel> GetListEntries(string patientId, string doctorId)
-        {
-            var patient = this.context.Patients.Include(x => x.Entries).First(x => x.Id == patientId);
-            return patient.Entries.Where(x => x.Doctor.Id == doctorId).Select(EntryHistoryViewModel.Convert).ToList();
-        }
-
-        public bool SaveEntry(EntryHistoryViewModel model)
+        public Entry SaveEntry(EntryHistoryViewModel model)
         {
             try
             {
                 var patientUser = this.context.Patients.Find(model.PatientId);
                 var doctorUser = this.context.Doctors.Find(model.DoctorId);
                 if (patientUser == null || doctorUser == null)
-                    return false;
-                var researches = model.ResearchIds != null && model.ResearchIds.Any()
-                                     ? model.ResearchIds.Select(researchId => context.Researches.ToList().First(x => x.Id == int.Parse(researchId))).ToList()
-                                     : null;
-                this.context.Entries.Add(EntryHistoryViewModel.ConvertBack(model, researches, doctorUser, patientUser));
+                    return null;
+                //var researches = model.ResearchIds != null && model.ResearchIds.Any()
+                //                     ? model.ResearchIds.Select(researchId => context.Researches.ToList().First(x => x.Id == int.Parse(researchId))).ToList()
+                //                     : null;
+                var entry = EntryHistoryViewModel.ConvertBack(model, doctorUser, patientUser);
+                this.context.Entries.Add(entry);
                 this.context.SaveChanges();
-                return true;
+                return entry;
             }
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                return false;
+                return null;
             }
         }
 

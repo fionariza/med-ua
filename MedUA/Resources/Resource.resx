@@ -190,10 +190,10 @@
     <value>Зберегти</value>
   </data>
   <data name="PatientHistoryFormAllEntries" xml:space="preserve">
-    <value>Усі записи</value>
+    <value>Записи усіх лікарів</value>
   </data>
   <data name="PatientHistoryFormMyEntries" xml:space="preserve">
-    <value>Мої записи</value>
+    <value>Тільки мої записи</value>
   </data>
   <data name="PatientHistoryFormTitle" xml:space="preserve">
     <value>Історія</value>
@@ -256,13 +256,13 @@
     <value>Реєстрація</value>
   </data>
   <data name="ResetPasswordReset" xml:space="preserve">
-    <value>Збросити</value>
+    <value>Скинути</value>
   </data>
   <data name="ResetPasswordViewTitle" xml:space="preserve">
-    <value>Збросити пароль</value>
+    <value>Скинути пароль</value>
   </data>
   <data name="ResetPasswordViewResetYourPassword" xml:space="preserve">
-    <value>Збросити пароль</value>
+    <value>Скинути пароль</value>
   </data>
   <data name="ResetPasswordConfirmationTitle" xml:space="preserve">
     <value>Ваш пароль був успішно змінений</value>
@@ -419,5 +419,8 @@
   </data>
   <data name="ConfirmEmailMessageLinkFormat" xml:space="preserve">
     <value>Тільки для ДЕМО: Будь-ласка, перейдіть за {0}, щоб підтвердити Вашу поштову скриньку.</value>
+  </data>
+  <data name="ShowMoreEntriesLink" xml:space="preserve">
+    <value>Показати більше</value>
   </data>
 </root>

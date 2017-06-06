@@ -7,13 +7,13 @@ namespace MedUA.Data
     using System.Threading.Tasks;
 
     using MedUA.DAL;
+    using MedUA.Resources;
 
     public interface IApplicationDataProvider : IDisposable
     {
-        IList<EntryHistoryViewModel> GetListEntries(string patientId);
-        IList<EntryHistoryViewModel> GetListEntries(string patientId, string doctorId);
+        IList<EntryHistoryViewModel> GetListEntries(string patientId, string doctorId = null, int take = PageConstants.PageCount, int skip = 0);
         Task<IList<PatientListViewModel>> GetPatientListViewModelAsync(string doctorId);
-        bool SaveEntry(EntryHistoryViewModel model);
+        Entry SaveEntry(EntryHistoryViewModel model);
         IResearchProvider GetResearchProvider();
         Task<DoctorUser> FindDoctorByIdAsync(string id);
 
