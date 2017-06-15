@@ -13,5 +13,6 @@
         
         public IEnumerable<SelectListItem> Regions { get; set; }
         public IEnumerable<ResearchHistoryViewModel> ResearchHistory { get; set; }
+        public string PatientSurnameName { get; set; }
     }
 }

@@ -1,11 +1,20 @@
-﻿@model MedUA.Models.ResearchPatientViewModel
-<div class="col-md-4">
-    @Html.LabelFor(model => model.RegionId, new { @class = "control-label" })  @Html.DropDownListFor(model => model.RegionId, Model.Regions, new { @class = "form-control", id = "selectRegion" })
-</div>
-<div id="selectResearchPart" class="col-md-6">
-    @{ Html.RenderPartial("ResearchPickPartial", Model.ResearchPickViewModel); }
+﻿@using MedUA.Models
+@model MedUA.Models.ResearchPatientViewModel
+<div class="row new-research">
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.RegionId, new { @class = "control-label" })  @Html.DropDownListFor(model => model.RegionId, Model.Regions, new { @class = "form-control", id = "selectRegion" })
+    </div>
+    <div class="col-md-6">
+        @Html.Label(MedUA.Resources.Resource.Research, new { @class = "control-label" })
+        <div id="selectResearchPart">
+            @{ Html.RenderPartial("ResearchPickPartial", Model.ResearchPickViewModel); }
+        </div>
+    </div>
+    <div class="col-md-2" id="researchCancelButton">
+        <input type="button" class="btn btn-default form-control"  onclick="HideResearchSection()" value=@MedUA.Resources.Resource.NewEntryViewCancel />
+    </div>
 </div>
 <div id="researchResponse" class="row">
 </div>
+<hr />
 
-<input type="button" class="btn btn-default" onclick="HideResearchSection()" value=@MedUA.Resources.Resource.NewEntryViewCancel />

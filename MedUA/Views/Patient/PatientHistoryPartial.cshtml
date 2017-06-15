@@ -1,12 +1,9 @@
 ﻿@using MedUA.Helpers
 @model IEnumerable<MedUA.Models.EntryHistoryViewModel>
 
-@if (Model == null || !Model.Any())
+@if (Model != null)
 {
-    <h2>@MedUA.Resources.Resource.PatientHistoryFormEmptyHistory</h2>
-}
-else
-{
+
     foreach (var item in Model)
     {
         <div class="entry-group">

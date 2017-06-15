@@ -6,10 +6,11 @@
     {
         <div class="entry-group">
             @Html.ResearchHistory(Html.LabelFor(model => item.ResearchName), mvcHtmlString: Html.DisplayFor(model => item.ResearchName))
-            @Html.ResearchHistory(Html.LabelFor(model => item.HospitalName), mvcHtmlString: Html.DisplayFor(model => item.HospitalAddress))
+            @Html.ResearchHistory(Html.LabelFor(model => item.HospitalName), mvcHtmlString: Html.DisplayFor(model => item.HospitalName))
             @Html.ResearchHistory(Html.LabelFor(model => item.HospitalAddress), mvcHtmlString: Html.DisplayFor(model => item.HospitalAddress))
             @Html.ResearchHistory(@Html.LabelFor(model => item.Date), mvcHtmlString: Html.DisplayFor(modelItem => item.Date))
             @Html.ResearchHistory(@Html.LabelFor(model => item.StatusString), mvcHtmlString: Html.DisplayFor(modelItem => item.StatusString))
         </div>
     }
+
 }

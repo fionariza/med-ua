@@ -8,7 +8,7 @@
         <div class="row entry-group" id="research-@item.PatientAppointmentId">
             <div class="col-md-10">
                 @Html.ResearchHistory(Html.LabelFor(model => item.ResearchName), mvcHtmlString: Html.DisplayFor(model => item.ResearchName))
-                @Html.ResearchHistory(Html.LabelFor(model => item.HospitalName), mvcHtmlString: Html.DisplayFor(model => item.HospitalAddress))
+                @Html.ResearchHistory(Html.LabelFor(model => item.HospitalName), mvcHtmlString: Html.DisplayFor(model => item.HospitalName))
                 @Html.ResearchHistory(Html.LabelFor(model => item.HospitalAddress), mvcHtmlString: Html.DisplayFor(model => item.HospitalAddress))
                 @Html.ResearchHistory(@Html.LabelFor(model => item.Date), mvcHtmlString: Html.DisplayFor(modelItem => item.Date))
                 @*@Html.ResearchHistory(@Html.LabelFor(model => item.StatusString), mvcHtmlString: Html.DisplayFor(modelItem => item.StatusString))*@
@@ -17,7 +17,7 @@
                 @if (item.Status == Status.Upcoming)
                 {
                     @*@Ajax.ActionLink(@MedUA.Resources.Resource.ResearchHistoryPartialCancel, "CancelAppointment", new { appointmentId = @item.PatientAppointmentId }, new AjaxOptions() { InsertionMode = InsertionMode.ReplaceWith, HttpMethod = "Post", UpdateTargetId ="research-" + @item.PatientAppointmentId })*@
-                    <input type="button" id="cancelResearchButton" onclick="CancelResearch('@item.PatientAppointmentId')" value=@MedUA.Resources.Resource.ResearchHistoryPartialCancel />
+                    <input type="button" class="btn btn-default" id="cancelResearchButton" onclick="CancelResearch('@item.PatientAppointmentId')" value=@MedUA.Resources.Resource.ResearchHistoryPartialCancel />
                 }
                 else
                 {

@@ -7,41 +7,54 @@
 }
 @Scripts.Render("~/scripts/jquery-1.10.2.min.js")
 @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
-<div class="form-group row">
-    @using (Ajax.BeginForm("ListPatients", new AjaxOptions() { HttpMethod = "Post", UpdateTargetId = "listPatients", InsertionMode = InsertionMode.Replace }))
-    {
-        <div class="col-xs-1">
-            @Html.LabelFor(x => patientFilterModel.DayOfVisit)
-            @Html.TextBox(nameof(patientFilterModel.DayOfVisit), null, new { @class = "form-control input-sm", type = "number", min = 1, @max = 31, placeholder = "дд" })
-        </div>
-        <div class="col-xs-1">
-            @Html.LabelFor(x => patientFilterModel.MonthOfVisit)
-            @Html.TextBox(nameof(patientFilterModel.MonthOfVisit), null, new { @class = "form-control input-sm", type = "number", @min = 1, @max = 12, placeholder = "мм" })
-        </div>
-        <div class="col-xs-1">
-            @Html.LabelFor(x => patientFilterModel.YearOfVisit)
-            @Html.TextBox(nameof(patientFilterModel.YearOfVisit), null, new { @class = "form-control input-sm", type = "number", @min = 1870, @max = DateTime.Now.Year, placeholder = "рррр" })
-        </div>
 
-        <div class="col-xs-1">
-            @Html.LabelFor(x => patientFilterModel.DayOfBirth)
-            @Html.TextBox(nameof(patientFilterModel.DayOfBirth), null, new { @class = "form-control input-sm", type = "number", min = 1, @max = 31, placeholder = "дд" })
+@using (Ajax.BeginForm("ListPatients", new {}, new AjaxOptions() { HttpMethod = "Post", UpdateTargetId = "listPatients", InsertionMode = InsertionMode.Replace}@*, new { @class="filter-patients-form"}*@))
+{
+    @*<div class="row">
+        <div class="col-md-10"></div>
+        <input type="reset" class="col-md-2 btn btn-default" value="@MedUA.Resources.Resource.ListPatientResetFilter" />
+    </div>*@
+    <div class="row">
+        <div class="col-md-1 col-lg-1">
+            @Html.Label(@MedUA.Resources.Resource.ListPatientDateOfVisit, new { @class = "control-label" })
         </div>
-        <div class="col-xs-1">
-            @Html.LabelFor(x => patientFilterModel.MonthOfBirth)
-            @Html.TextBox(nameof(patientFilterModel.MonthOfBirth), null, new { @class = "form-control input-sm", type = "number", @min = 1, @max = 12, placeholder = "мм" })
+        <div class="col-md-3">
+            <div class="col-md-3 col-lg-4 filter-patient-date">
+                @Html.TextBox(nameof(patientFilterModel.DayOfVisit), null, new { @class = "form-control input-sm", type = "number", min = 1, @max = 31, placeholder = "дд" })
+            </div>
+            <div class="col-md-3 col-lg-4 filter-patient-date">
+                @Html.TextBox(nameof(patientFilterModel.MonthOfVisit), null, new { @class = "form-control input-sm", type = "number", @min = 1, @max = 12, placeholder = "мм" })
+            </div>
+            <div class="col-md-6 col-lg-4 filter-patient-date">
+                @Html.TextBox(nameof(patientFilterModel.YearOfVisit), null, new { @class = "form-control input-sm", type = "number", @min = 1870, @max = DateTime.Now.Year, placeholder = "рррр" })
+            </div>
         </div>
-        <div class="col-xs-1">
-            @Html.LabelFor(x => patientFilterModel.YearOfBirth)
-            @Html.TextBox(nameof(patientFilterModel.YearOfBirth), null, new { @class = "form-control input-sm", type = "number", @min = 1870, @max = DateTime.Now.Year, placeholder = "рррр" })
+        <div class="col-md-1 col-lg-1">
+            @Html.Label(@MedUA.Resources.Resource.ListPatientDateOfBirth, new { @class = "control-label" })
         </div>
-        <div class="col-md-2">
-            @Html.LabelFor(x => patientFilterModel.Diagnosis)
+        <div class="col-md-3">
+            <div class="col-md-3 col-lg-4 filter-patient-date">
+                @Html.TextBox(nameof(patientFilterModel.DayOfBirth), null, new { @class = "form-control input-sm", type = "number", min = 1, @max = 31, placeholder = "дд" })
+            </div>
+            <div class="col-md-3 col-lg-4 filter-patient-date">
+                @Html.TextBox(nameof(patientFilterModel.MonthOfBirth), null, new { @class = "form-control input-sm", type = "number", @min = 1, @max = 12, placeholder = "мм" })
+            </div>
+            <div class="col-md-6 col-lg-4 filter-patient-date">
+                @Html.TextBox(nameof(patientFilterModel.YearOfBirth), null, new { @class = "form-control input-sm", type = "number", @min = 1870, @max = DateTime.Now.Year, placeholder = "рррр" })
+            </div>
+        </div>
+        <div class="col-md-1 col-lg-1">
+            @Html.Label(@MedUA.Resources.Resource.ListPatientDiagnosis, new { @class = "control-label" })
+        </div>
+        <div class="col-md-2 col-lg-2">
             @Html.TextBox(nameof(patientFilterModel.Diagnosis), null, new { @class = "form-control input-sm" })
         </div>
-        <input type="submit" value="filter" />
-    }
-</div>
+        <div class="col-md-1 col-lg-1">
+            <input type="submit" value="@MedUA.Resources.Resource.ListPatientFilter" class="form-control btn btn-default" />
+        </div>
+    </div>
+    <hr/>
+}
 <div id="listPatients">
     @{Html.RenderPartial("ListPatientsPartial", Model);}
 </div>

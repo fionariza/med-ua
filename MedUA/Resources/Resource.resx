@@ -459,4 +459,52 @@
   <data name="ResearchHistoryPartialCancel" xml:space="preserve">
     <value>Відмінити</value>
   </data>
+  <data name="ListPatientDateOfBirth" xml:space="preserve">
+    <value>Дата народження</value>
+  </data>
+  <data name="ListPatientDateOfVisit" xml:space="preserve">
+    <value>Дата візиту</value>
+  </data>
+  <data name="ListPatientDiagnosis" xml:space="preserve">
+    <value>Діагноз</value>
+  </data>
+  <data name="ListPatientFilter" xml:space="preserve">
+    <value>Фільтр</value>
+  </data>
+  <data name="ListPatientResetFilter" xml:space="preserve">
+    <value>Очистити</value>
+  </data>
+  <data name="ListPatientsNotFound" xml:space="preserve">
+    <value>Пацієнтів з такими критеріями пошуку не знайдено</value>
+  </data>
+  <data name="PatientHistoryEntries" xml:space="preserve">
+    <value>Записи</value>
+  </data>
+  <data name="PatientHistoryResearches" xml:space="preserve">
+    <value>Дослідження</value>
+  </data>
+  <data name="Research" xml:space="preserve">
+    <value>Дослідження</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="HospitalAddress" xml:space="preserve">
+    <value>Адреса лікарні</value>
+  </data>
+  <data name="HospitalName" xml:space="preserve">
+    <value>Назва лікарні</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Ціна</value>
+  </data>
+  <data name="ResearchName" xml:space="preserve">
+    <value>Дослідження</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="NewAppointmentRegister" xml:space="preserve">
+    <value>Записатися</value>
+  </data>
 </root>

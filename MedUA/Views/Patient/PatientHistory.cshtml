@@ -3,12 +3,16 @@
     ViewBag.Title = MedUA.Resources.Resource.PatientHistoryFormTitle;
 }
 <ul class="nav nav-pills">
-    <li class="active"><a data-toggle="pill" href="#patients">Home</a></li>
-    <li><a data-toggle="pill" href="#researches">Menu 1</a></li>
+    <li class="active"><a data-toggle="pill" href="#patients">@MedUA.Resources.Resource.PatientHistoryEntries</a></li>
+    <li><a data-toggle="pill" href="#researches">@MedUA.Resources.Resource.PatientHistoryResearches</a></li>
 </ul>
 <div class="tab-content">
     <div id="patients" class="tab-pane fade in active">
         <div id="patients-id">
+            @if (Model == null)
+            {
+                <h2>@MedUA.Resources.Resource.PatientHistoryFormEmptyHistory</h2>
+            }
             @{ Html.RenderPartial("PatientHistoryPartial", Model.EntryHistory);}
         </div>
         <input type="hidden" id="direction" value="1" />

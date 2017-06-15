@@ -62,11 +62,12 @@
                 return this.View("Error");
             }
             var doctorId = this.User.Identity.GetUserId();
+            var patientUser = await this.UserManager.FindByIdAsync(patientId);
             var listEntries = this.DataProvider.GetListEntries(patientId, doctorId);
             var researchList = await DataProvider.GetResearches(ResearchSettlementScope.Settlement, this.User.Identity.GetUserId());
             var researchHistory = await DataProvider.GetListResearches(patientId);
             var regions = DataProvider.GetRegions(doctorId);
-            return this.View("PatientHistory", new EntryHistoryViewModelList() { EntryHistory = listEntries, PatientId = patientId, ResearchList = researchList, Regions = regions, ResearchHistory = researchHistory });
+            return this.View("PatientHistory", new EntryHistoryViewModelList() { EntryHistory = listEntries, PatientId = patientId, PatientSurnameName = $"{patientUser.Surname} {patientUser.Name}", ResearchList = researchList, Regions = regions, ResearchHistory = researchHistory });
         }
 
         [HttpPost]
@@ -179,8 +180,6 @@
         [HttpPost]
         public async Task<PartialViewResult> SaveResearchAppointment(NewAppointmentPartial newAppointmentPartial)
         {
-            //var dropDown = new 
-            //return dropDown;
             var resultDate = DateTime.Parse(newAppointmentPartial.Date);
             var resultTime = DateTime.Parse(newAppointmentPartial.Time);
             var resultDateTime = new DateTime(resultDate.Year, resultDate.Month, resultDate.Day, resultTime.Hour, resultTime.Minute, resultTime.Second);

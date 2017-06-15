@@ -7,19 +7,22 @@
 }
 @Scripts.Render("~/scripts/jquery-1.10.2.min.js")
 @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+
+<h2>@Model.PatientSurnameName</h2>
+<hr />
 <ul class="nav nav-pills">
-    <li class="active"><a data-toggle="pill" href="#entries">Home</a></li>
-    <li><a data-toggle="pill" href="#researches">Menu 1</a></li>
+    <li class="active"><a data-toggle="pill" href="#entries">@MedUA.Resources.Resource.PatientHistoryEntries</a></li>
+    <li><a data-toggle="pill" href="#researches">@MedUA.Resources.Resource.PatientHistoryResearches</a></li>
 </ul>
 
 <div class="tab-content">
     <div id="entries" class="tab-pane fade in active">
         <div class="col-md-10">
-            <a id="addEntryLink" onclick="ShowAddSection()">@MedUA.Resources.Resource.PatientHistoryFormAddEntry</a>
+            <h4><a id="addEntryLink" onclick="ShowAddSection()" class="btn-link btn">+ @MedUA.Resources.Resource.PatientHistoryFormAddEntry</a></h4>
         </div>
         <div class="col-md-2">
-            <a id="showAllEntries" class="patient-history-link">@MedUA.Resources.Resource.PatientHistoryFormAllEntries</a>
-            <a id="showEntries" class="patient-history-link" style="display:none">@MedUA.Resources.Resource.PatientHistoryFormMyEntries</a>
+            <h4><a id="showAllEntries" class="patient-history-link btn-link btn">@MedUA.Resources.Resource.PatientHistoryFormAllEntries</a></h4>
+            <h4><a id="showEntries" class="patient-history-link btn-link btn" style="display:none">@MedUA.Resources.Resource.PatientHistoryFormMyEntries</a></h4>
         </div>
         <div id="add-section" style="display:none">
             @{ Html.RenderPartial("NewEntryPartial", new EntryHistoryViewModel() { TimeStampDateTime = DateTime.Now, PatientId = Model.PatientId }); }
@@ -29,12 +32,15 @@
         </div>
         <input type="hidden" id="direction" value="1" />
         <input type="hidden" id="filteredByDoctor" value="true" />
-        <a id="showMoreLink">@MedUA.Resources.Resource.ShowMoreEntriesLink</a>
+        @if (Model.EntryHistory.Any())
+        {
+            <a id="showMoreLink" class="btn-link btn">@MedUA.Resources.Resource.ShowMoreEntriesLink</a>
+        }
     </div>
 
     <div id="researches" class="tab-pane fade">
         <div class="col-md-10">
-            <a id="addResearchLink" onclick="ShowResearchSection()">@MedUA.Resources.Resource.PatientHistoryFormAddResearch</a>
+            <h4><a id="addResearchLink" class="btn-link btn">+ @MedUA.Resources.Resource.PatientHistoryFormAddResearch</a></h4>
         </div>
         <div id="add-research" style="display:none">
             @{ Html.RenderPartial("NewResearchPartial", new ResearchPatientViewModel() { Regions = Model.Regions, ResearchPickViewModel = new ResearchPickViewModel() { ResearchesList = Model.ResearchList, PatientId = Model.PatientId } });}
@@ -43,7 +49,10 @@
             @{ Html.RenderPartial("ResearchHistoryPartial", Model.ResearchHistory);}
         </div>
         <input type="hidden" id="page" value="1" />
-        <a id="showMoreResearchLink">@MedUA.Resources.Resource.ShowMoreEntriesLink</a>
+        @if (Model.ResearchHistory.Any())
+        {
+            <a id="showMoreResearchLink">@MedUA.Resources.Resource.ShowMoreEntriesLink</a>
+        }
     </div>
 </div>
 
@@ -73,6 +82,11 @@
         var page = parseInt(value);
         RefreshResearchHistory(researchUrl(), page + 1, page);
     });
+    $("#addResearchLink").click(function (e) {
+        debugger;
+        RefreshResearchRegions();
+        ShowResearchSection();
+    });
     $("#saveEntryButton").click(function (e) {
         debugger;
         e.preventDefault();
@@ -87,21 +101,71 @@
     $("#selectRegion").change(function () {
         debugger;
         document.getElementById("selectResearch").disabled = true;
+        RefreshScopeRegion(this.value);
+    });
+
+    function OpenClose(index) {
+        debugger;
+        var wasDisabled = $('#' + index).css('display') == 'none';
+        $(".slidingDiv").hide();
+        if (wasDisabled) {
+            $("#" + index).show().fadeIn(100);
+        }
+    }
+    function DateChange(research) {
+        debugger;
+        var timeId = 'appointmentTimes' + research;
+        var dateId = 'appointmentDates' + research;
+        $('#' + timeId + ' option').remove();
+        $.getJSON('@Url.Action("GetTimes")', { date: $('#' + dateId).val(), id: research }, function (data) {
+            $.each(data, function () {
+                $('#' + timeId).append('<option value=' +
+                    this.Value + '>' + this.Text + '</option>');
+            });
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            alert('Error getting times!');
+        });
+    }
+    function RefreshResearchRegions(scope, research) {
+        if (typeof scope == 'undefined') {
+            scope = document.getElementById("selectRegion").value;
+        }
+        if (typeof research == 'undefined') {
+            research = document.getElementById("selectResearch").value;
+        }
         $.ajax({
-            url: '@Url.Action("LoadResearchPickPartial", "Doctor")' + '?patientId=@Model.PatientId&scope=' + this.value,
+            url: '@Url.Action("LoadResearches", "Doctor")' + '?patientId=@Model.PatientId&scope=' + scope + '&research=' + research,
             type: "post",
             success: function (html) {
-                $("#selectResearchPart").html($(html));
+                $("#researchResponse").html($(html));
             },
             error: function (jqXHR, exception) {
-                if (error == undefined) {
+                if (typeof error == 'undefined') {
                     HandleError(jqXHR, exception);
                 } else {
                     error(jqXHR, exception);
                 }
             }
         });
-    });
+    }
+    function RefreshScopeRegion(scope) {
+        $.ajax({
+            url: '@Url.Action("LoadResearchPickPartial", "Doctor")' + '?patientId=@Model.PatientId&scope=' + scope,
+            type: "post",
+            success: function (html) {
+                $("#selectResearchPart").html($(html));
+                RefreshResearchRegions(scope);
+            },
+            error: function (jqXHR, exception) {
+                if (typeof error == 'undefined') {
+                    HandleError(jqXHR, exception);
+                } else {
+                    error(jqXHR, exception);
+                }
+            }
+        });
+    }
+
     function validationFields() {
         return ['Complains', 'Examination', 'Recomendations'];
     }

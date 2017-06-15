@@ -22,20 +22,13 @@
     });
 }
 
-function SaveResearch(form) {
-    debugger;
-    $.ajax({
-        url: form.action,
-        type: form.method,
-        data: $(form).serialize(),
-        success: function (html) {
-            $("#researches-id").prepend($(html));
-            HideResearchSection();
-        },
-        error: function (jqXHR, exception) {
-            HandleError(jqXHR, exception);
-        }
-    });
+function SaveResearchSuccess(html) {
+    $("#researches-id").prepend($(html));
+    HideResearchSection();
+}
+
+function SaveResearchError(jqXHR, exception) {
+    HandleError(jqXHR, exception);
 }
 
 function RefreshPatientHistory(url, filterDoctor, page, skip) {

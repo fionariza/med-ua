@@ -14,9 +14,30 @@ a {
     padding-top: 15px;
 }
 
-/*.add-section-form {
-    padding-top: 15px;
-}*/
+.new-research {
+    position: relative;
+}
+
+#researchCancelButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.filter-patients-form {
+    border: lightblue;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.filter-patient-date {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
 
 .bordered-link {
     border: white;
@@ -39,18 +60,20 @@ selectize-input {
 }
 
 .navbar-inverse {
-    
-    background-color:steelblue;
+    background-color: steelblue;
 }
-.navbar-inverse .navbar-nav > li > a {
-    color: white;
-}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: white;
+    }
+
 .navbar-nav > li > a {
     color: white;
 }
-    .navbar-inverse .navbar-brand {
-        color: white;
-    }
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
 
 .stretch-height {
     height: 100%;

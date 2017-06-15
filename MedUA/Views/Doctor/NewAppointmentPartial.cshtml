@@ -1,14 +1,15 @@
 ﻿@model MedUA.Models.NewAppointmentPartial
-<div class="col-md-10">
-    @using (Ajax.BeginForm("SaveResearchAppointment", new { }, new AjaxOptions() { HttpMethod = "POST" }, new { id = "saveResearchForm" + @Model.HospitalResearchId }))
-    {
-        @Html.HiddenFor(model => model.PatientId)
-        @Html.HiddenFor(model => model.HospitalResearchId)
+@using (Ajax.BeginForm("SaveResearchAppointment", new { }, new AjaxOptions() { HttpMethod = "POST", OnSuccess = "SaveResearchSuccess", OnFailure = "SaveResearchError" }, new { id = "saveResearchForm" + @Model.HospitalResearchId }))
+{
+    @Html.HiddenFor(model => model.PatientId)
+    @Html.HiddenFor(model => model.HospitalResearchId)
+    <div class="col-md-3">
         @Html.DropDownListFor(model => Model.Date, Model.Dates, new { @class = "form-control", id = "appointmentDates" + @Model.HospitalResearchId, onchange = "DateChange(" + Model.HospitalResearchId + ")" })
+    </div>
+    <div class="col-md-3">
         @Html.DropDownListFor(model => Model.Time, Model.Times, new { @class = "form-control", id = "appointmentTimes" + @Model.HospitalResearchId })
-    }
-
-</div>
-<div class="col-md-2">
-    <a src="#" onclick="SaveResearch($('#saveResearchForm' + '@Model.HospitalResearchId')[0])">Save</a>
-</div>
+    </div>
+    <div class="col-md-2">
+        <input type="submit" value="@MedUA.Resources.Resource.NewAppointmentRegister" class="btn btn-default form-control"/>
+    </div>
+}

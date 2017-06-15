@@ -3,54 +3,23 @@
 @model MedUA.Models.ResearchesPartialViewModelList
 @if (Model != null)
 {
-        <div class="row">
-            <div class="col-md-2">@Html.LabelFor(model => Model.First().HospitalName)</div>
-            <div class="col-md-3">@Html.LabelFor(model => Model.First().HospitalAddress)</div>
-            <div class="col-md-3">@Html.LabelFor(model => Model.First().ResearchName)</div>
-            <div class="col-md-2">@Html.LabelFor(model => Model.First().Price)</div>
-            <div></div>
+    <div class="row">
+        <div class="col-md-3">@Html.LabelFor(model => Model.First().HospitalName)</div>
+        <div class="col-md-3">@Html.LabelFor(model => Model.First().HospitalAddress)</div>
+        <div class="col-md-3">@Html.LabelFor(model => Model.First().ResearchName)</div>
+        <div class="col-md-3">@Html.LabelFor(model => Model.First().Price)</div>
+    </div>
+    for (var index = 0; index < Model.Count; index++)
+    {
+        var researchViewModel = Model[index];
+        <div class="row btn-link" onclick="OpenClose('@index')">
+            <div class="col-md-3">@Html.DisplayFor(model => researchViewModel.HospitalName)</div>
+            <div class="col-md-3">@Html.DisplayFor(model => researchViewModel.HospitalAddress)</div>
+            <div class="col-md-3">@Html.DisplayFor(model => researchViewModel.ResearchName)</div>
+            <div class="col-md-3">@Html.DisplayFor(model => researchViewModel.Price)</div>
         </div>
-        for (var index = 0; index < Model.Count; index++)
-        {
-            var researchViewModel = Model[index];
-            <div class="row" onclick="OpenClose('@index')">
-                <div class="col-md-2">@Html.DisplayFor(model => researchViewModel.HospitalName)</div>
-                <div class="col-md-3">@Html.DisplayFor(model => researchViewModel.HospitalAddress)</div>
-                <div class="col-md-3">@Html.DisplayFor(model => researchViewModel.ResearchName)</div>
-                <div class="col-md-2">@Html.DisplayFor(model => researchViewModel.Price)</div>
-                <div class="col-md-2">
-                    @*<a href="#" class="show_hide" onclick="OpenClose('@index')">Закрити</a><br>*@
-                </div>
-            </div>
-            <div class="slidingDiv row" id='@index' style="display: none">
-                @{ Html.RenderPartial("NewAppointmentPartial", new NewAppointmentPartial() { Dates = researchViewModel.Dates, HospitalResearchId = researchViewModel.ResearchHospitalId, PatientId = Model.PatientId, Times = researchViewModel.Times }); }
-            </div>
-        }
-    
-    @*<script src="~/Scripts/toggleDiv.js"></script>*@
-    <script>
-        function OpenClose(index) {
-            var current = $("#" + index);
-            var wasDisabled = !current.visible;
-            $(".slidingDiv").hide();
-            if (wasDisabled) {
-                $("#" + index).show().fadeIn(100);
-            }
-        }
-        function DateChange(research) {
-            debugger;
-            var timeId = 'appointmentTimes' + research;
-            var dateId = 'appointmentDates' + research;
-            $('#' + timeId + ' option').remove();
-            $.getJSON('@Url.Action("GetTimes")', { date: $('#' + dateId).val(), id: research }, function (data) {
-                $.each(data, function () {
-                    $('#' + timeId).append('<option value=' +
-                        this.Value + '>' + this.Text + '</option>');
-                });
-            }).fail(function (jqXHR, textStatus, errorThrown) {
-                alert('Error getting times!');
-            });
-        }
-    </script>
-
-}
+        <div class="slidingDiv row" id='@index' style="display: none">
+            @{ Html.RenderPartial("NewAppointmentPartial", new NewAppointmentPartial() { Dates = researchViewModel.Dates, HospitalResearchId = researchViewModel.ResearchHospitalId, PatientId = Model.PatientId, Times = researchViewModel.Times }); }
+        </div>
+                    }
+                }

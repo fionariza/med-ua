@@ -1,4 +1,10 @@
 ﻿@model IEnumerable<MedUA.Models.PatientListViewModel>
+@if (!Model.Any())
+{
+    <h4>@MedUA.Resources.Resource.ListPatientsNotFound</h4>
+}
+else
+{
     <div class="row">
         <div class="col-md-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -23,9 +29,8 @@
         </div>
     </div>
 
-    @foreach (var item in Model)
+    foreach (var item in Model)
     {
-
         <a href="@Url.Action("Details", new { patientId = item.Id })">
             <div class="row">
                 <div class="col-md-2">
@@ -52,3 +57,5 @@
             </div>
         </a>
     }
+
+}
