@@ -89,6 +89,11 @@
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="EntityModel\ApplicationUser.cs" />
+    <Compile Include="EntityModel\HospitalResearch.cs" />
+    <Compile Include="EntityModel\Oblast.cs" />
+    <Compile Include="EntityModel\PatientAppointment.cs" />
+    <Compile Include="EntityModel\Region.cs" />
+    <Compile Include="EntityModel\Status.cs" />
     <Compile Include="Enums\BloodType.cs" />
     <Compile Include="EntityModel\DoctorUser.cs" />
     <Compile Include="Enums\MaleFemale.cs" />
@@ -96,9 +101,27 @@
     <Compile Include="Migrations\201705192003305_Added gender.Designer.cs">
       <DependentUpon>201705192003305_Added gender.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706101833463_Added regions.cs" />
+    <Compile Include="Migrations\201706101833463_Added regions.Designer.cs">
+      <DependentUpon>201706101833463_Added regions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706111430442_Remove research from entry.cs" />
+    <Compile Include="Migrations\201706111430442_Remove research from entry.Designer.cs">
+      <DependentUpon>201706111430442_Remove research from entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706111522012_Add hospital to hospital research.cs" />
+    <Compile Include="Migrations\201706111522012_Add hospital to hospital research.Designer.cs">
+      <DependentUpon>201706111522012_Add hospital to hospital research.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706130526286_Add hospital research to appointmet.cs" />
+    <Compile Include="Migrations\201706130526286_Add hospital research to appointmet.Designer.cs">
+      <DependentUpon>201706130526286_Add hospital research to appointmet.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestData\EntriesGenerator.cs" />
     <Compile Include="TestData\NamesAndAliases.cs" />
+    <Compile Include="TestData\Place.cs" />
     <Compile Include="TestData\TestDataGenerator.cs" />
+    <Compile Include="UserBuilder\RegionsGenerator.cs" />
     <Compile Include="UserBuilder\UserGenerator.cs" />
     <Compile Include="UserManagers\ApplicationUserExtension.cs" />
     <Compile Include="UserManagers\ApplicationUserManager.cs" />
@@ -167,6 +190,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705192003305_Added gender.resx">
       <DependentUpon>201705192003305_Added gender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706101833463_Added regions.resx">
+      <DependentUpon>201706101833463_Added regions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706111430442_Remove research from entry.resx">
+      <DependentUpon>201706111430442_Remove research from entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706111522012_Add hospital to hospital research.resx">
+      <DependentUpon>201706111522012_Add hospital to hospital research.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706130526286_Add hospital research to appointmet.resx">
+      <DependentUpon>201706130526286_Add hospital research to appointmet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

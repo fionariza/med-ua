@@ -126,8 +126,80 @@
   <data name="AccountRegisterCodeOrEmailIsNotValid" xml:space="preserve">
     <value>Невірний email або медичний код</value>
   </data>
-  <data name="PasswordAndConfirmationPasswordDoNotMatch" xml:space="preserve">
-    <value>Паролі не співпадають</value>
+  <data name="AddPatientPartialButton" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="BloodType" xml:space="preserve">
+    <value>Група крові</value>
+  </data>
+  <data name="ChangePasswordChangePassord" xml:space="preserve">
+    <value>Змінити</value>
+  </data>
+  <data name="ChangePasswordChangeYourPassword" xml:space="preserve">
+    <value>Змініть пароль</value>
+  </data>
+  <data name="ChangePasswordViewTitle" xml:space="preserve">
+    <value>Змінити пароль</value>
+  </data>
+  <data name="ConfirmEmailMessage" xml:space="preserve">
+    <value>Дякую за реєстрацію в системі med.ua. Будь-ласка, перевірте вашу поштову скриньку. Якщо ваша скринька зареєстрована, ми надіслали Вам листа.</value>
+  </data>
+  <data name="ConfirmEmailMessageLinkFormat" xml:space="preserve">
+    <value>Тільки для ДЕМО: Будь-ласка, перейдіть за {0}, щоб підтвердити Вашу поштову скриньку.</value>
+  </data>
+  <data name="ConfirmEmailMessageLinkText" xml:space="preserve">
+    <value>цим посиланням</value>
+  </data>
+  <data name="ConfirmEmailTitle" xml:space="preserve">
+    <value>Підтверження поштової скриньки</value>
+  </data>
+  <data name="ConfirmLinkTitle" xml:space="preserve">
+    <value>Підтверження поштової скриньки</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Підтвердити новий пароль</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Підтвердіть пароль</value>
+  </data>
+  <data name="CountryScope" xml:space="preserve">
+    <value>Україна</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Старий пароль</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Дата народження</value>
+  </data>
+  <data name="DoctorLayoutMyPatient" xml:space="preserve">
+    <value>Мої пацієнти</value>
+  </data>
+  <data name="DoctorLayoutSearchPatient" xml:space="preserve">
+    <value>Пошук пацієнта</value>
+  </data>
+  <data name="DoctorProfileViewModelHospital" xml:space="preserve">
+    <value>Лікарня</value>
+  </data>
+  <data name="DoctorProfileViewModelPosition" xml:space="preserve">
+    <value>Позиція</value>
+  </data>
+  <data name="DoctorRegisterControllerLoginInvalidAttempt" xml:space="preserve">
+    <value>Неправильний email або пароль</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailAddressInvalidFormat" xml:space="preserve">
+    <value>Email-адреса неправильного формату</value>
+  </data>
+  <data name="EnterMailContinue" xml:space="preserve">
+    <value>Продовжити</value>
+  </data>
+  <data name="EnterMailEnterMailMessage" xml:space="preserve">
+    <value>Вкажіть email адресу, за допомогою якої Вас реєстрували в системі</value>
+  </data>
+  <data name="EnterMailTitle" xml:space="preserve">
+    <value>Зареєструйтеся</value>
   </data>
   <data name="EntryHistoryViewModelComplains" xml:space="preserve">
     <value>Скарги</value>
@@ -150,11 +222,44 @@
   <data name="EntryHistoryViewModelResearches" xml:space="preserve">
     <value>Дослідження</value>
   </data>
+  <data name="ErrorHasOccured" xml:space="preserve">
+    <value>Виникла помилка.</value>
+  </data>
+  <data name="ErrorViewErrorOccurs" xml:space="preserve">
+    <value>Щось трапилось :(</value>
+  </data>
+  <data name="ErrorViewErrorOccursMessage" xml:space="preserve">
+    <value>Під час Вашого запиту, щось пішло не так. Будь-ласка,спробуйте перезавтажити сторінку</value>
+  </data>
+  <data name="ErrorViewTitle" xml:space="preserve">
+    <value>Помилка</value>
+  </data>
+  <data name="ForgotPasswordConfirmationLink" xml:space="preserve">
+    <value>за цим посиланням</value>
+  </data>
+  <data name="ForgotPasswordConfirmationMessageStringFormat" xml:space="preserve">
+    <value>Тільки для ДЕМО: Будь-ласка, перейдіть за {0}, щоб встановити новий пароль.</value>
+  </data>
+  <data name="ForgotPasswordConfirmationTitle" xml:space="preserve">
+    <value>На Ваш email був відправлений лист. Будь-ласка, перейдіть за посиланням, щоб встановити новий пароль.</value>
+  </data>
+  <data name="ForgotPasswordEmailLink" xml:space="preserve">
+    <value>Готово</value>
+  </data>
+  <data name="ForgotPasswordEnterEmail" xml:space="preserve">
+    <value>Введіть поштову скриньку</value>
+  </data>
+  <data name="ForgotPasswordTitle" xml:space="preserve">
+    <value>Забули пароль?</value>
+  </data>
   <data name="ListPatientsViewChoose" xml:space="preserve">
     <value>Обрати</value>
   </data>
   <data name="ListPatientsViewTitle" xml:space="preserve">
     <value>Пацієнти</value>
+  </data>
+  <data name="LoginFooterMessage" xml:space="preserve">
+    <value>Якщо не пам'ятаєте Ваш email, будь-ласка, зв'яжіться з менеджером: +38044-44-44-444</value>
   </data>
   <data name="LoginPartialGoodAfternoon" xml:space="preserve">
     <value>Доброго вечора</value>
@@ -180,119 +285,17 @@
   <data name="LoginPartialSettings" xml:space="preserve">
     <value>Налаштування</value>
   </data>
-  <data name="MedUATitle" xml:space="preserve">
-    <value>med.ua</value>
+  <data name="LoginViewLogin" xml:space="preserve">
+    <value>Увійти</value>
   </data>
-  <data name="NewEntryViewCancel" xml:space="preserve">
-    <value>Відміна</value>
+  <data name="LoginViewMessage" xml:space="preserve">
+    <value>Використовуйте Ваш email, який ви вказували для реєстрації.</value>
   </data>
-  <data name="NewEntryViewSave" xml:space="preserve">
-    <value>Зберегти</value>
-  </data>
-  <data name="PatientHistoryFormAllEntries" xml:space="preserve">
-    <value>Записи усіх лікарів</value>
-  </data>
-  <data name="PatientHistoryFormMyEntries" xml:space="preserve">
-    <value>Тільки мої записи</value>
-  </data>
-  <data name="PatientHistoryFormTitle" xml:space="preserve">
-    <value>Історія</value>
-  </data>
-  <data name="DateOfBirth" xml:space="preserve">
-    <value>Дата народження</value>
-  </data>
-  <data name="PatientListViewModelLastDateVisit" xml:space="preserve">
-    <value>Останній запис</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>Ім'я</value>
-  </data>
-  <data name="Patronimic" xml:space="preserve">
-    <value>По батькові</value>
-  </data>
-  <data name="PlaceOfBirth" xml:space="preserve">
-    <value>Місце народження</value>
-  </data>
-  <data name="Surname" xml:space="preserve">
-    <value>Прізвище</value>
-  </data>
-  <data name="PatientHistoryFormAddEntry" xml:space="preserve">
-    <value>Додати запис</value>
-  </data>
-  <data name="ConfirmEmailMessageLinkText" xml:space="preserve">
-    <value>цим посиланням</value>
-  </data>
-  <data name="ConfirmEmailMessage" xml:space="preserve">
-    <value>Дякую за реєстрацію в системі med.ua. Будь-ласка, перевірте вашу поштову скриньку. Якщо ваша скринька зареєстрована, ми надіслали Вам листа.</value>
-  </data>
-  <data name="ConfirmEmailTitle" xml:space="preserve">
-    <value>Підтверження поштової скриньки</value>
-  </data>
-  <data name="ConfirmLinkTitle" xml:space="preserve">
-    <value>Підтверження поштової скриньки</value>
-  </data>
-  <data name="EnterMailContinue" xml:space="preserve">
-    <value>Продовжити</value>
-  </data>
-  <data name="EnterMailEnterMailMessage" xml:space="preserve">
-    <value>Вкажіть email адресу, за допомогою якої Вас реєстрували в системі</value>
-  </data>
-  <data name="EnterMailTitle" xml:space="preserve">
-    <value>Зареєструйтеся</value>
-  </data>
-  <data name="ForgotPasswordEmailLink" xml:space="preserve">
-    <value>Готово</value>
-  </data>
-  <data name="ForgotPasswordEnterEmail" xml:space="preserve">
-    <value>Введіть поштову скриньку</value>
-  </data>
-  <data name="ForgotPasswordTitle" xml:space="preserve">
-    <value>Забули пароль?</value>
-  </data>
-  <data name="RegisterViewRegister" xml:space="preserve">
-    <value>Готово</value>
-  </data>
-  <data name="RegisterViewTitle" xml:space="preserve">
-    <value>Реєстрація</value>
-  </data>
-  <data name="ResetPasswordReset" xml:space="preserve">
-    <value>Скинути</value>
-  </data>
-  <data name="ResetPasswordViewTitle" xml:space="preserve">
-    <value>Скинути пароль</value>
-  </data>
-  <data name="ResetPasswordViewResetYourPassword" xml:space="preserve">
-    <value>Скинути пароль</value>
-  </data>
-  <data name="ResetPasswordConfirmationTitle" xml:space="preserve">
-    <value>Ваш пароль був успішно змінений</value>
-  </data>
-  <data name="ChangePasswordViewTitle" xml:space="preserve">
-    <value>Змінити пароль</value>
-  </data>
-  <data name="ErrorViewErrorOccurs" xml:space="preserve">
-    <value>Щось трапилось :(</value>
-  </data>
-  <data name="ErrorViewErrorOccursMessage" xml:space="preserve">
-    <value>Під час Вашого запиту, щось пішло не так. Будь-ласка,спробуйте перезавтажити сторінку</value>
-  </data>
-  <data name="ErrorViewTitle" xml:space="preserve">
-    <value>Помилка</value>
-  </data>
-  <data name="ForgotPasswordConfirmationMessageStringFormat" xml:space="preserve">
-    <value>Тільки для ДЕМО: Будь-ласка, перейдіть за {0}, щоб встановити новий пароль.</value>
-  </data>
-  <data name="ChangePasswordChangePassord" xml:space="preserve">
-    <value>Змінити</value>
-  </data>
-  <data name="ChangePasswordChangeYourPassword" xml:space="preserve">
-    <value>Змініть пароль</value>
+  <data name="LoginViewTitle" xml:space="preserve">
+    <value>Увійдіть</value>
   </data>
   <data name="ManageViewChangeYourAccountSettings" xml:space="preserve">
     <value>Змініть налаштування</value>
-  </data>
-  <data name="ManageViewSettings" xml:space="preserve">
-    <value>Налаштування</value>
   </data>
   <data name="ManageViewChangeYourPassword" xml:space="preserve">
     <value>Змініть пароль</value>
@@ -300,65 +303,83 @@
   <data name="ManageViewPassword" xml:space="preserve">
     <value>Пароль</value>
   </data>
-  <data name="LoginViewLogin" xml:space="preserve">
-    <value>Увійти</value>
-  </data>
-  <data name="LoginViewMessage" xml:space="preserve">
-    <value>Використовуйте Ваш email, який ви вказували для реєстрації.</value>
-  </data>
-  <data name="ConfirmPassword" xml:space="preserve">
-    <value>Підтвердіть пароль</value>
-  </data>
-  <data name="Email" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>Пароль</value>
-  </data>
-  <data name="TheMustBeAtLeastCharactersLongStringFormat" xml:space="preserve">
-    <value>{0} має бути не менше ніж {2} символів.</value>
+  <data name="ManageViewSettings" xml:space="preserve">
+    <value>Налаштування</value>
   </data>
   <data name="MedicalCode" xml:space="preserve">
     <value>Медичний код</value>
   </data>
-  <data name="RememberMe" xml:space="preserve">
-    <value>Запам'ятати мене?</value>
+  <data name="MedUATitle" xml:space="preserve">
+    <value>med.ua</value>
   </data>
-  <data name="ConfirmNewPassword" xml:space="preserve">
-    <value>Підтвердити новий пароль</value>
+  <data name="Name" xml:space="preserve">
+    <value>Ім'я</value>
   </data>
-  <data name="CurrentPassword" xml:space="preserve">
-    <value>Старий пароль</value>
+  <data name="NewEntryViewCancel" xml:space="preserve">
+    <value>Відміна</value>
+  </data>
+  <data name="NewEntryViewSave" xml:space="preserve">
+    <value>Зберегти</value>
   </data>
   <data name="NewPassword" xml:space="preserve">
     <value>Новий пароль</value>
   </data>
-  <data name="DoctorRegisterControllerLoginInvalidAttempt" xml:space="preserve">
-    <value>Неправильний email або пароль</value>
+  <data name="OblastScope" xml:space="preserve">
+    <value>Область</value>
   </data>
-  <data name="RequiredErrorMessage" xml:space="preserve">
-    <value>{0} має бути заповненим</value>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
   </data>
-  <data name="EmailAddressInvalidFormat" xml:space="preserve">
-    <value>Email-адреса неправильного формату</value>
-  </data>
-  <data name="ErrorHasOccured" xml:space="preserve">
-    <value>Виникла помилка.</value>
-  </data>
-  <data name="YouPasswordHasBeenChanged" xml:space="preserve">
-    <value>Ваш пароль був змінений.</value>
-  </data>
-  <data name="YouPasswordHasBeenSet" xml:space="preserve">
-    <value>Ваш пароль був встановлений.</value>
+  <data name="PasswordAndConfirmationPasswordDoNotMatch" xml:space="preserve">
+    <value>Паролі не співпадають</value>
   </data>
   <data name="PasswordErrorFormat" xml:space="preserve">
     <value>Невірний формат паролю. Пароль має складатись хоча б з однієї цифри[0-9] або символа, хоча б однієї маленької та великої літери.</value>
   </data>
-  <data name="ForgotPasswordConfirmationTitle" xml:space="preserve">
-    <value>На Ваш email був відправлений лист. Будь-ласка, перейдіть за посиланням, щоб встановити новий пароль.</value>
+  <data name="PatientHistoryFormAddEntry" xml:space="preserve">
+    <value>Додати запис</value>
   </data>
-  <data name="ForgotPasswordConfirmationLink" xml:space="preserve">
-    <value>за цим посиланням</value>
+  <data name="PatientHistoryFormAllEntries" xml:space="preserve">
+    <value>Записи усіх лікарів</value>
+  </data>
+  <data name="PatientHistoryFormEmptyHistory" xml:space="preserve">
+    <value>У Вас немає записів</value>
+  </data>
+  <data name="PatientHistoryFormMyEntries" xml:space="preserve">
+    <value>Тільки мої записи</value>
+  </data>
+  <data name="PatientHistoryFormTitle" xml:space="preserve">
+    <value>Історія</value>
+  </data>
+  <data name="PatientLayoutLookMedicalCard" xml:space="preserve">
+    <value>Переглянути картку</value>
+  </data>
+  <data name="PatientListViewModelLastDateVisit" xml:space="preserve">
+    <value>Останній запис</value>
+  </data>
+  <data name="PatientProfileViewModelDoctorList" xml:space="preserve">
+    <value>Лікарі</value>
+  </data>
+  <data name="Patronimic" xml:space="preserve">
+    <value>По батькові</value>
+  </data>
+  <data name="PlaceOfBirth" xml:space="preserve">
+    <value>Місце народження</value>
+  </data>
+  <data name="RegionScope" xml:space="preserve">
+    <value>Регіон</value>
+  </data>
+  <data name="RegisterViewRegister" xml:space="preserve">
+    <value>Готово</value>
+  </data>
+  <data name="RegisterViewTitle" xml:space="preserve">
+    <value>Реєстрація</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Запам'ятати мене?</value>
+  </data>
+  <data name="RequiredErrorMessage" xml:space="preserve">
+    <value>{0} має бути заповненим</value>
   </data>
   <data name="ResetPasswordConfirmationLink" xml:space="preserve">
     <value>увійдіть</value>
@@ -366,61 +387,76 @@
   <data name="ResetPasswordConfirmationMessageStringFormat" xml:space="preserve">
     <value>Будь-ласка, {0}.</value>
   </data>
-  <data name="LoginViewTitle" xml:space="preserve">
-    <value>Увійдіть</value>
+  <data name="ResetPasswordConfirmationTitle" xml:space="preserve">
+    <value>Ваш пароль був успішно змінений</value>
   </data>
-  <data name="LoginFooterMessage" xml:space="preserve">
-    <value>Якщо не пам'ятаєте Ваш email, будь-ласка, зв'яжіться з менеджером: +38044-44-44-444</value>
+  <data name="ResetPasswordReset" xml:space="preserve">
+    <value>Скинути</value>
   </data>
-  <data name="PatientLayoutLookMedicalCard" xml:space="preserve">
-    <value>Переглянути картку</value>
+  <data name="ResetPasswordViewResetYourPassword" xml:space="preserve">
+    <value>Скинути пароль</value>
   </data>
-  <data name="TimeOfBirth" xml:space="preserve">
-    <value>Час народження</value>
-  </data>
-  <data name="PatientProfileViewModelDoctorList" xml:space="preserve">
-    <value>Лікарі</value>
-  </data>
-  <data name="BloodType" xml:space="preserve">
-    <value>Група крові</value>
-  </data>
-  <data name="PatientHistoryFormEmptyHistory" xml:space="preserve">
-    <value>У Вас немає записів</value>
-  </data>
-  <data name="DoctorProfileViewModelPosition" xml:space="preserve">
-    <value>Позиція</value>
-  </data>
-  <data name="DoctorProfileViewModelHospital" xml:space="preserve">
-    <value>Лікарня</value>
-  </data>
-  <data name="DoctorLayoutMyPatient" xml:space="preserve">
-    <value>Мої пацієнти</value>
+  <data name="ResetPasswordViewTitle" xml:space="preserve">
+    <value>Скинути пароль</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Пошук</value>
   </data>
-  <data name="AddPatientPartialButton" xml:space="preserve">
-    <value>Додати</value>
-  </data>
   <data name="SearchResultsPartialAdded" xml:space="preserve">
     <value>Ваш пацієнт</value>
-  </data>
-  <data name="DoctorLayoutSearchPatient" xml:space="preserve">
-    <value>Пошук пацієнта</value>
-  </data>
-  <data name="SearchResultsPartialNotFound" xml:space="preserve">
-    <value>По вашому запиту нікого не знайдено або пошук не вдовільняє критеріям.</value>
   </data>
   <data name="SearchResultsPartialItsYou" xml:space="preserve">
     <value>Це ви</value>
   </data>
+  <data name="SearchResultsPartialNotFound" xml:space="preserve">
+    <value>По вашому запиту нікого не знайдено або пошук не вдовільняє критеріям.</value>
+  </data>
   <data name="SearchViewExplanation" xml:space="preserve">
     <value>Медичний код або ПІП</value>
   </data>
-  <data name="ConfirmEmailMessageLinkFormat" xml:space="preserve">
-    <value>Тільки для ДЕМО: Будь-ласка, перейдіть за {0}, щоб підтвердити Вашу поштову скриньку.</value>
+  <data name="SettlementScope" xml:space="preserve">
+    <value>Населений пункт</value>
   </data>
   <data name="ShowMoreEntriesLink" xml:space="preserve">
     <value>Показати більше</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Прізвище</value>
+  </data>
+  <data name="TheMustBeAtLeastCharactersLongStringFormat" xml:space="preserve">
+    <value>{0} має бути не менше ніж {2} символів.</value>
+  </data>
+  <data name="TimeOfBirth" xml:space="preserve">
+    <value>Час народження</value>
+  </data>
+  <data name="YouPasswordHasBeenChanged" xml:space="preserve">
+    <value>Ваш пароль був змінений.</value>
+  </data>
+  <data name="YouPasswordHasBeenSet" xml:space="preserve">
+    <value>Ваш пароль був встановлений.</value>
+  </data>
+  <data name="Oblast" xml:space="preserve">
+    <value>область</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>район</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>Безкоштовно</value>
+  </data>
+  <data name="PatientHistoryFormAddResearch" xml:space="preserve">
+    <value>Додати дослідження</value>
+  </data>
+  <data name="CancelledStatus" xml:space="preserve">
+    <value>Відмінений</value>
+  </data>
+  <data name="PassedStatus" xml:space="preserve">
+    <value>Минувший</value>
+  </data>
+  <data name="UpcomingStatus" xml:space="preserve">
+    <value>Назначений</value>
+  </data>
+  <data name="ResearchHistoryPartialCancel" xml:space="preserve">
+    <value>Відмінити</value>
   </data>
 </root>

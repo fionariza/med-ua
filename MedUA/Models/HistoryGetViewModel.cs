@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class PatientHistoryGetViewModel
+    public class HistoryGetViewModel
     {
         public bool FilterDoctor { get; set; } = true;
         public int Skip { get; set; }

@@ -1,0 +1,23 @@
+﻿@model MedUA.Models.ResearchPickViewModel
+@Html.LabelFor(model => model.ResearchId, new { @class = "control-label" })  @Html.DropDownListFor(model => model.ResearchId, Model.ResearchesList, new { @class = "control-select", id = "selectResearch" })
+<script src="~/Content/selectize/_plug.min.js"></script>
+<script>
+    $("#selectResearch").change(function () {
+        debugger;
+        var scope = document.getElementById("selectRegion").value;
+        $.ajax({
+            url: '@Url.Action("LoadResearches", "Doctor")' + '?patientId=@Model.PatientId&scope=' + scope + '&research=' + this.value,
+            type: "post",
+            success: function (html) {
+                $("#researchResponse").html($(html));
+            },
+            error: function (jqXHR, exception) {
+                if (error === 'undefined') {
+                    HandleError(jqXHR, exception);
+                } else {
+                    error(jqXHR, exception);
+                }
+            }
+        });
+    });
+</script>

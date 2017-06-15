@@ -197,6 +197,21 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Helpers\BaseYearMonthGenerator.cs" />
+    <Compile Include="Helpers\CompareFunctionCreator.cs" />
+    <Compile Include="Helpers\DateTimeExtensions.cs" />
+    <Compile Include="Helpers\EntryDateTimeGenerator.cs" />
+    <Compile Include="Helpers\PatientYearMonthGenerator.cs" />
+    <Compile Include="Helpers\StatusGenerator.cs" />
+    <Compile Include="Models\NewAppointmentPartial.cs" />
+    <Compile Include="Models\PatientListFilteredModel.cs" />
+    <Compile Include="Models\ResearchesPartialViewModel.cs" />
+    <Compile Include="Models\ResearchesPartialViewModelList.cs" />
+    <Compile Include="Models\ResearchHistoryViewModel.cs" />
+    <Compile Include="Models\ResearchPickViewModel.cs" />
+    <Compile Include="Models\ResearchSettlementScope.cs" />
+    <Compile Include="Models\ResearchPatientViewModel.cs" />
+    <Compile Include="Providers\ResearchContextWrapper.cs" />
     <Compile Include="Resources\PageConstants.cs" />
     <Compile Include="Helpers\BloodTypeSelectorNames.cs" />
     <Compile Include="Interfaces\ISurnameNamePatronimicRetriever.cs" />
@@ -206,7 +221,7 @@
     <Compile Include="Models\AddPatientViewModel.cs" />
     <Compile Include="Models\DoctorProfileViewModel.cs" />
     <Compile Include="Models\DoctorSignViewModel.cs" />
-    <Compile Include="Models\PatientHistoryGetViewModel.cs" />
+    <Compile Include="Models\HistoryGetViewModel.cs" />
     <Compile Include="Models\PatientSearchResultViewModel.cs" />
     <Compile Include="Models\PatientSearchViewModel.cs" />
     <Compile Include="Providers\ApplicationDataProvider.cs" />
@@ -229,9 +244,9 @@
     <Compile Include="Models\PatientProfileViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resource.Designer.cs">
-      <DependentUpon>Resource.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -282,8 +297,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\patient-history.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toggleDiv.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -330,9 +347,16 @@
     <Content Include="Views\Doctor\SearchResultsPartial.cshtml" />
     <Content Include="Views\Doctor\AddPatientPartial.cshtml" />
     <Content Include="Views\Doctor\NewResearchPartial.cshtml" />
+    <Content Include="Views\Doctor\ResearchPickPartial.cshtml" />
+    <Content Include="Views\Doctor\ResearchesPartial.cshtml" />
+    <Content Include="Views\Doctor\NewAppointmentPartial.cshtml" />
+    <Content Include="Views\Patient\ResearchHistoryPartial.cshtml" />
+    <Content Include="Views\Doctor\ResearchHistoryPartial.cshtml" />
+    <Content Include="Views\Doctor\ListPatientsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Resources\Temp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

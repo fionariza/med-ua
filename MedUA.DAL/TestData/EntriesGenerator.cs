@@ -44,8 +44,6 @@ namespace MedUA.DAL.UserBuilder
                                    Examination =
                                        "Підвищений артеріальний тиск, гіпертензія, які відносяться до класу серцево-судинної системи.",
                                    Recomendations = "Валемідін 2 р/день протягом неділі",
-                                   Researches =
-                                       new List<Research>() { new Research() { Name = "Аналіз крові" } },
                                    TimeStamp = GenerateDateTime()
                                },
                                new Entry()
@@ -76,7 +74,6 @@ namespace MedUA.DAL.UserBuilder
                                    Complains = "Головний біль",
                                    Examination = "Подразнення оболонок головного мозку в результаті запалення",
                                    Recomendations = "Tidin NEXAL протягом неділі",
-                                   Researches = new List<Research>() { new Research() { Name = "Остеокальцин" }, new Research() { Name = "Пероксидаза щитоподібної залози, антитіла (ATПO)" }} ,
                                    TimeStamp = GenerateDateTime()
                                }
                            }
@@ -91,7 +88,6 @@ namespace MedUA.DAL.UserBuilder
                                    Examination = "Вражена слухова труба",
                                    Recomendations = " Отіпакс, для заспокоєння больових відчуттів; зігріваючі компреси на вуха",
                                    QuestionDiagnosis = "Гострий середній отит",
-                                   Researches = new List<Research>() { new Research() { Name = "Прогестерон" }, new Research() { Name = "Пероксидаза щитоподібної залози, антитіла (ATПO)" } },
                                    TimeStamp = GenerateDateTime()
                                },
                                new Entry()

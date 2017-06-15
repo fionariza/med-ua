@@ -19,6 +19,7 @@
                 System.Diagnostics.Debugger.Launch();
             }
 
+            new RegionsGenerator(context).Generate();
             new UserGenerator(context).Generate();
         }
         

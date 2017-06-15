@@ -42,32 +42,31 @@
             yield return "Рибосомальний протеїн(ANA - Screen), антитіла IgG";
         }
 
-        public static IEnumerable<string> GetPlaces()
-
+        public static IEnumerable<Place> GetPlaces()
         {
-            yield return "КИЇВ";
-            yield return "ЗАПОРІЖЖЯ";
-            yield return "ЛЬВІВ";
-            yield return "КОЗАЧЕ";
-            yield return "МАСЛОВА";
-            yield return "ПЕТРІВКА";
-            yield return "ОДЕСА";
-            yield return "ДЗИНІЛОР";
-            yield return "КІЛІЯ";
-            yield return "ЛІСКИ";
-            yield return "МИКОЛАЇВКА";
-            yield return "КРИВИЙ РІГ";
-            yield return "МИРНЕ";
-            yield return "НОВОМИКОЛАЇВКА";
-            yield return "НОВОСЕЛІВКА";
-            yield return "ПОМАЗАНИ";
-            yield return "ДНІПР";
-            yield return "ПРИМОРСЬКЕ";
-            yield return "ПРИОЗЕРНЕ";
-            yield return "ШЕВЧЕНКОВЕ";
-            yield return "СТАРІ ТРОЯНИ";
-            yield return "ТРУДОВЕ";
-            yield return "ВАСИЛІВКА";
+            yield return new Place() { SettlementName = "КИЇВ", Oblast = "Київська", Region = "Києво-Святошинський" };
+            yield return new Place() { SettlementName = "ЗАПОРІЖЖЯ", Oblast = "Запорізька", Region = "Запорізький" };
+            yield return new Place() { SettlementName = "КОЗАЧЕ", Oblast = "Одеська", Region = "Біляївський" };
+            yield return new Place() { SettlementName = "ЛЬВІВ", Oblast = "Львівська", Region = "Львів" };
+            yield return new Place() { SettlementName = "МАСЛОВА", Oblast = "Одеська", Region = "Роздільнянський" };
+            yield return new Place() { SettlementName = "ПЕТРІВКА", Oblast = "Одеська", Region = "Савранський" };
+            yield return new Place() { SettlementName = "ОДЕСА", Oblast = "Одеська", Region = "Одеса" };
+            yield return new Place() { SettlementName = "ДЗИНІЛОР", Oblast = "Одеська", Region = "Лиманський" };
+            yield return new Place() { SettlementName = "КІЛІЯ", Oblast = "Одеська", Region = "Лиманський" };
+            yield return new Place() { SettlementName = "ЛІСКИ", Oblast = "Одеська", Region = "Савранський" };
+            yield return new Place() { SettlementName = "МИКОЛАЇВКА", Oblast = "Вінницька", Region = "Піщанський" };
+            yield return new Place() { SettlementName = "КРИВИЙ РІГ", Oblast = "Дніпропетровська", Region = "Криворізький" };
+            yield return new Place() { SettlementName = "МИРНЕ", Oblast = "Дніпропетровська", Region = "Криворізький" };
+            yield return new Place() { SettlementName = "НОВОМИКОЛАЇВКА", Oblast = "Дніпропетровська", Region = "Дніпровський" };
+            yield return new Place() { SettlementName = "НОВОСЕЛІВКА", Oblast = "Дніпропетровська", Region = "Криворізький" };
+            yield return new Place() { SettlementName = "ПОМАЗАНИ", Oblast = "Дніпропетровська", Region = "Криворізький" };
+            yield return new Place() { SettlementName = "ДНІПРО", Oblast = "Дніпропетровська", Region = "Дніпровський" };
+            yield return new Place() { SettlementName = "ПРИМОРСЬКЕ", Oblast = "Дніпропетровська", Region = "Нікопольський" };
+            yield return new Place() { SettlementName = "ПРИОЗЕРНЕ", Oblast = "Дніпропетровська", Region = "Нікопольський" };
+            yield return new Place() { SettlementName = "ШЕВЧЕНКОВЕ", Oblast = "Дніпропетровська", Region = "Покровський" };
+            yield return new Place() { SettlementName = "СТАРІ ТРОЯНИ", Oblast = "Дніпропетровська", Region = "Нікопольський" };
+            yield return new Place() { SettlementName = "ТРУДОВЕ", Oblast = "Дніпропетровська", Region = "Покровський" };
+            yield return new Place() { SettlementName = "ВАСИЛІВКА", Oblast = "Дніпропетровська ", Region = "Покровський" };
         }
         public static IEnumerable<NamesAndAliases> GetWomenNames()
         {

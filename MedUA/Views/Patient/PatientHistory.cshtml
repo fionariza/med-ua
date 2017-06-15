@@ -2,13 +2,59 @@
 @{
     ViewBag.Title = MedUA.Resources.Resource.PatientHistoryFormTitle;
 }
-@if (Model.List == null || !Model.List.Any())
-{
-    <h2>@MedUA.Resources.Resource.PatientHistoryFormEmptyHistory</h2>
-}
-else
-{
-    <div id="patients-id">
-        @{ Html.RenderPartial("PatientHistoryPartial", Model.List);}
+<ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#patients">Home</a></li>
+    <li><a data-toggle="pill" href="#researches">Menu 1</a></li>
+</ul>
+<div class="tab-content">
+    <div id="patients" class="tab-pane fade in active">
+        <div id="patients-id">
+            @{ Html.RenderPartial("PatientHistoryPartial", Model.EntryHistory);}
+        </div>
+        <input type="hidden" id="direction" value="1" />
+        <a id="showMoreLink">@MedUA.Resources.Resource.ShowMoreEntriesLink</a>
     </div>
-}
+    <div id="researches" class="tab-pane fade">
+        <div id="researches-id">
+            @{ Html.RenderPartial("ResearchHistoryPartial", Model.ResearchHistory);}
+        </div>
+        <input type="hidden" id="page" value="1" />
+        <a id="showMoreResearchLink">@MedUA.Resources.Resource.ShowMoreEntriesLink</a>
+    </div>
+</div>
+<script src="~/Scripts/patient-history.js"></script>
+@Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+<script>
+    $("#showMoreLink").click(function () {
+        debugger;
+        var page = CurrentPage();
+        RefreshPatientHistory(patientUrl(), false, page + 1, page);
+    });
+    $("#showMoreResearchLink").click(function () {
+        debugger;
+        var value = $("#page").val();
+        var page = parseInt(value);
+        RefreshResearchHistory(researchUrl(), page + 1, page);
+    });
+
+    function CancelResearch(patientAppointmentId) {
+        debugger;
+        $.ajax({
+            url: '@Url.Action("CancelAppointment", "Patient")' + '?appointmentId=' + patientAppointmentId,
+            type: "POST",
+            dataType: "html",
+            success: function (msg) {
+                $("#research-" + patientAppointmentId).replaceWith(msg);
+            },
+            error: function (msg) { console.log(msg); }
+        });
+
+    }
+    function patientUrl() {
+        return '@Url.Action("PatientHistory", "Patient", new { patientId  = Model.PatientId})';
+    }
+
+    function researchUrl() {
+        return '@Url.Action("ResearchHistory", "Patient", new { patientId  = Model.PatientId})';
+    }
+</script>

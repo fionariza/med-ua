@@ -196,6 +196,15 @@ namespace MedUA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Україна.
+        /// </summary>
+        public static string CountryScope {
+            get {
+                return ResourceManager.GetString("CountryScope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Старий пароль.
         /// </summary>
         public static string CurrentPassword {
@@ -457,6 +466,15 @@ namespace MedUA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Безкоштовно.
+        /// </summary>
+        public static string Free {
+            get {
+                return ResourceManager.GetString("Free", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Обрати.
         /// </summary>
         public static string ListPatientsViewChoose {
@@ -673,6 +691,24 @@ namespace MedUA.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to область.
+        /// </summary>
+        public static string Oblast {
+            get {
+                return ResourceManager.GetString("Oblast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Область.
+        /// </summary>
+        public static string OblastScope {
+            get {
+                return ResourceManager.GetString("OblastScope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Пароль.
         /// </summary>
         public static string Password {
@@ -709,7 +745,7 @@ namespace MedUA.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Показати записи усіх лікарів.
+        ///   Looks up a localized string similar to Записи усіх лікарів.
         /// </summary>
         public static string PatientHistoryFormAllEntries {
             get {
@@ -727,7 +763,7 @@ namespace MedUA.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Мої записи.
+        ///   Looks up a localized string similar to Тільки мої записи.
         /// </summary>
         public static string PatientHistoryFormMyEntries {
             get {
@@ -786,6 +822,24 @@ namespace MedUA.Resources {
         public static string PlaceOfBirth {
             get {
                 return ResourceManager.GetString("PlaceOfBirth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to район.
+        /// </summary>
+        public static string Region {
+            get {
+                return ResourceManager.GetString("Region", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регіон.
+        /// </summary>
+        public static string RegionScope {
+            get {
+                return ResourceManager.GetString("RegionScope", resourceCulture);
             }
         }
         
@@ -853,7 +907,7 @@ namespace MedUA.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Збросити.
+        ///   Looks up a localized string similar to Скинути.
         /// </summary>
         public static string ResetPasswordReset {
             get {
@@ -862,7 +916,7 @@ namespace MedUA.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Збросити пароль.
+        ///   Looks up a localized string similar to Скинути пароль.
         /// </summary>
         public static string ResetPasswordViewResetYourPassword {
             get {
@@ -871,7 +925,7 @@ namespace MedUA.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Збросити пароль.
+        ///   Looks up a localized string similar to Скинути пароль.
         /// </summary>
         public static string ResetPasswordViewTitle {
             get {
@@ -921,6 +975,15 @@ namespace MedUA.Resources {
         public static string SearchViewExplanation {
             get {
                 return ResourceManager.GetString("SearchViewExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Населений пункт.
+        /// </summary>
+        public static string SettlementScope {
+            get {
+                return ResourceManager.GetString("SettlementScope", resourceCulture);
             }
         }
         
@@ -975,6 +1038,46 @@ namespace MedUA.Resources {
         public static string YouPasswordHasBeenSet {
             get {
                 return ResourceManager.GetString("YouPasswordHasBeenSet", resourceCulture);
+            }
+        }
+
+        public static string PatientHistoryFormAddResearch
+        {
+            get
+            {
+                return ResourceManager.GetString("PatientHistoryFormAddResearch", resourceCulture);
+            }
+        }
+
+        public static string UpcomingStatus
+        {
+            get
+            {
+                return ResourceManager.GetString("UpcomingStatus", resourceCulture);
+            }
+        }
+
+        public static string CancelledStatus
+        {
+            get
+            {
+                return ResourceManager.GetString("CancelledStatus", resourceCulture);
+            }
+        }
+
+        public static string PassedStatus
+        {
+            get
+            {
+                return ResourceManager.GetString("PassedStatus", resourceCulture);
+            }
+        }
+
+        public static string ResearchHistoryPartialCancel
+        {
+            get
+            {
+                return ResourceManager.GetString("ResearchHistoryPartialCancel", resourceCulture);
             }
         }
     }

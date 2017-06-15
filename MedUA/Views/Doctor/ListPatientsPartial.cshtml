@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MedUA.Models.PatientListViewModel>
+    <div class="row">
+        <div class="col-md-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </div>
+        <div class="col-md-2">
+            @Html.DisplayNameFor(model => model.Surname)
+        </div>
+        <div class="col-md-2">
+            @Html.DisplayNameFor(model => model.Partonimic)
+        </div>
+        <div class="col-md-1">
+            @Html.DisplayNameFor(model => model.PlaceOfBirth)
+        </div>
+        <div class="col-md-1">
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </div>
+        <div class="col-md-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </div>
+        <div class="col-md-2">
+            @Html.DisplayNameFor(model => model.LastDateVisit)
+        </div>
+    </div>
+
+    @foreach (var item in Model)
+    {
+
+        <a href="@Url.Action("Details", new { patientId = item.Id })">
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </div>
+                <div class="col-md-2">
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </div>
+                <div class="col-md-2">
+                    @Html.DisplayFor(modelItem => item.Partonimic)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.PlaceOfBirth)
+                </div>
+                <div class="col-md-1">
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </div>
+                <div class="col-md-2">
+                    @Html.DisplayFor(modelItem => item.Email)
+                </div>
+                <div class="col-md-2">
+                    @Html.DisplayFor(modelItem => item.LastDateVisit)
+                </div>
+            </div>
+        </a>
+    }

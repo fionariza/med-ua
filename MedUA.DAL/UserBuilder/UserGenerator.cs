@@ -36,9 +36,8 @@
         public void Generate()
         {
             var entries = new EntriesGenerator().DoctorPosition();
-            var placeOfBirth = TestDataGenerator.GetPlaces().ToList();
+            var placeOfBirth = TestDataGenerator.GetPlaces().Select(p=>p.SettlementName).ToList();
             this.RegisterRoles();
-            this.RegisterResearches(TestDataGenerator.GetResearches());
             var femaleIds = this.RegisterPatients(TestDataGenerator.GetWomenNames(), placeOfBirth, MaleFemale.Female);
             var maleIds = this.RegisterPatients(TestDataGenerator.GetMenNames(), placeOfBirth, MaleFemale.Male);
             var count = entries.Count / 2;
@@ -62,20 +61,7 @@
             }
         }
 
-        /// <summary>
-        /// Реєстрація досліджень
-        /// </summary>
-        /// <param name="researches">Назви досліджень</param>
-        private void RegisterResearches(IEnumerable<string> researches)
-        {
-            foreach (var research in researches)
-            {
-                if (this.context.Researches.FirstOrDefault(x=>x.Name == research) != null) continue;
-                var researchSave = new Research() { Name = research };
-                this.context.Researches.Add(researchSave);
-                this.context.SaveChanges();
-            }
-        }
+
 
         /// <summary>
         /// Реєстрація лікарів
@@ -90,6 +76,7 @@
             var list = new List<string>();
             var index = 0;
             var random = new Random();
+            var hospitals = this.context.Hospitals.ToList();
             foreach (var doctor in doctorList)
             {
                 var id = ids[index];
@@ -105,9 +92,7 @@
                     MaleFemale = patient.MaleFemale,
                     Email = patient.Email.Replace("gmail.com", "med.ua"),
                     Position = doctor.Key,
-                    CurrentHospital = new Hospital() { Address = $"{places[random.Next(5)]}, {random.Next(1, 100)}",
-                        Name = $"Лікарня № {random.Next(1, 100)}" }
-
+                    CurrentHospital = hospitals[index]
                 };
                 doctorUser.UserName = doctorUser.Email;
                 list.Add(doctrorUserBuilder.AddOrUpdate(doctorUser).Id);

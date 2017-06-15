@@ -2,6 +2,8 @@
 {
     using System.Data.Entity;
 
+    using MedUA.DAL.EntityModel;
+
     using Microsoft.AspNet.Identity.EntityFramework;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -25,5 +27,13 @@
         public DbSet<Entry> Entries { get; set; }
 
         public DbSet<Research> Researches { get; set; }
+
+        public DbSet<Region> Regions { get; set; }
+
+        public DbSet<Oblast> Oblasts { get; set; }
+
+        public DbSet<PatientAppointment> Appointments { get; set; }
+
+        public DbSet<HospitalResearch> HospitalResearches { get; set; }
     }
 }

@@ -17,6 +17,15 @@
             return new MvcHtmlString(value);
         }
 
+        public static MvcHtmlString ResearchHistory(this HtmlHelper<IEnumerable<ResearchHistoryViewModel>> htmlHelper, MvcHtmlString name, MvcHtmlString mvcHtmlString)
+        {
+            var value = "<div class='row'>" +
+              "<div class='col-md-2'>" + name.ToHtmlString() + ":</div>" +
+                 "<div class='col-md-10'>" + mvcHtmlString.ToHtmlString() +
+               "</div></div>";
+            return new MvcHtmlString(value);
+        }
+
         public static MvcHtmlString PatientHistory(this HtmlHelper<EntryHistoryViewModel> htmlHelper, MvcHtmlString name, MvcHtmlString mvcHtmlString)
         {
             //var value = "<div class='form-group'>" +

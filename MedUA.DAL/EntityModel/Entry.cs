@@ -18,7 +18,6 @@
         public string Diagnosis { get; set; }
         public string Recomendations { get; set; }
         public string QuestionDiagnosis { get; set; }
-        public virtual ICollection<Research> Researches { get; set; }
         public virtual PatientUser Patient { get; set; }
         public virtual DoctorUser Doctor { get; set; }
     }

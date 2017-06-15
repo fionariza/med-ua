@@ -1,88 +1,22 @@
-﻿@using System.Collections
-@using MedUA.Helpers
+﻿@using MedUA.Helpers
 @model MedUA.Models.EntryHistoryViewModel
-<hr/>
-<form class="form-horizontal form-group" role="form" id="saveEntryForm" method="post">
-
-    @*@using (Ajax.BeginForm("SaveNewEntry", "Doctor", new { }, new AjaxOptions() { HttpMethod = "POST" }, new { @class = "form-horizontal", id = "saveEntryForm" }))
-        {*@
+@*<form class="form-horizontal form-group" role="form" id="saveEntryForm" method="post">*@
+@using (Ajax.BeginForm("SaveNewEntry", "Doctor", new { }, new AjaxOptions() { HttpMethod = "POST" }, new { @class = "form-horizontal", id = "saveEntryForm", method = "post" }))
+{
     @Html.AntiForgeryToken()
     @Html.HiddenFor(modelItem => modelItem.PatientId)
     @Html.HiddenFor(modelItem => modelItem.TimeStampDateTime)
-    <div id="add">
-        @Html.PatientHistory(Html.LabelFor(model => model.TimeStamp, new { @class = "control-label col-md-2" }), mvcHtmlString: Html.LabelForModel(Model.TimeStamp, new {@class = "control-label"}))
-        @Html.PatientHistory(Html.LabelFor(model => model.Complains, new { @class = "control-label col-md-2" }), mvcHtmlString: Html.TextAreaFor(model => Model.Complains, new { @class = "form-control multiline col-md-10", rows = 4 }))
-        @Html.PatientHistory(Html.LabelFor(model => model.Examination, new { @class = "control-label col-md-2" }), mvcHtmlString: Html.TextAreaFor(model => Model.Examination, new { @class = "form-control multiline col-md-10", rows = 4 }))
-        @*@Html.PatientHistoryWrapWithDiv(Html.LabelFor(model => model.ResearchIds), mvcHtmlString: @Html.DropDownListFor(model => model.ResearchIds, (IEnumerable<SelectListItem>)ViewBag.ResearchesList, new { @class = "multiline control-select form-control", multiple = "multiple" }))*@
-        @Html.PatientHistory(Html.LabelFor(model => model.Recomendations, new { @class = "control-label col-md-2" }), mvcHtmlString: Html.TextAreaFor(modelItem => Model.Recomendations, new { @class = "form-control multiline col-md-10", rows = 4 }))
-        @Html.PatientHistory(Html.LabelFor(model => model.Diagnosis, new { @class = "control-label col-md-2" }), mvcHtmlString: Html.TextBoxFor(modelItem => Model.Diagnosis, new { @class = "form-control multiline col-md-10" }))
-    </div>
+    @Html.PatientHistory(Html.LabelFor(model => model.TimeStamp, new { @class = "control-label col-md-2" }), mvcHtmlString: Html.LabelForModel(Model.TimeStamp, new { @class = "control-label" }))
+    @Html.PatientHistory(Html.LabelFor(model => model.Complains, new { @class = "control-label col-md-2" }), mvcHtmlString: Html.TextAreaFor(model => Model.Complains, new { @class = "form-control multiline col-md-10", rows = 4 }))
+    @Html.PatientHistory(Html.LabelFor(model => model.Examination, new { @class = "control-label col-md-2" }), mvcHtmlString: Html.TextAreaFor(model => Model.Examination, new { @class = "form-control multiline col-md-10", rows = 4 }))
+    @Html.PatientHistory(Html.LabelFor(model => model.Recomendations, new { @class = "control-label col-md-2" }), mvcHtmlString: Html.TextAreaFor(modelItem => Model.Recomendations, new { @class = "form-control multiline col-md-10", rows = 4 }))
+    @Html.PatientHistory(Html.LabelFor(model => model.Diagnosis, new { @class = "control-label col-md-2" }), mvcHtmlString: Html.TextBoxFor(modelItem => Model.Diagnosis, new { @class = "form-control multiline col-md-10" }))
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input id="saveEntryButton" type="submit" class="btn btn-default" value=@MedUA.Resources.Resource.NewEntryViewSave>
-            <input id="resetButton" type="reset" class="btn btn-default" value=@MedUA.Resources.Resource.NewEntryViewCancel @*onClick="window.location.reload()"*@ />
+            <input id="saveEntryButton" type="button" class="btn btn-default" value=@MedUA.Resources.Resource.NewEntryViewSave>
+            <input id="resetButton" type="button" class="btn btn-default" value=@MedUA.Resources.Resource.NewEntryViewCancel />
         </div>
     </div>
-</form>
-<hr/>
-<script src="~/Content/selectize/_plug.min.js"></script>
-<script>
-    $("#saveEntryForm").submit(function (e) {
-        debugger;
-        e.preventDefault();
-        var valid = true;
-        getValidationFields().forEach(f => {
-            if (this[f].value === "") {
-                valid = false;
-                this[f].classList.add("input-validation-error");
-            }
-        });
-        if (!valid) return;
-        $.ajax({
-            url: '@Url.Action("SaveNewEntry")',
-            type: this.method,
-            data: $(this).serialize(),
-            success: function (response) {
-                if (response != null) {
-                    SavedEntrySucceed(response);
-                } else {
-                    alert('@MedUA.Resources.Resource.ErrorHasOccured');
-                }
-            },
-            error: function (jqXHR, exception) {
-                var msg = '';
-                if (jqXHR.status === 0) {
-                    msg = 'Not connect.\n Verify Network.';
-                } else if (jqXHR.status == 404) {
-                    msg = 'Requested page not found. [404]';
-                } else if (jqXHR.status == 500) {
-                    msg = 'Internal Server Error [500].';
-                } else if (exception === 'parsererror') {
-                    msg = 'Requested JSON parse failed.';
-                } else if (exception === 'timeout') {
-                    msg = 'Time out error.';
-                } else if (exception === 'abort') {
-                    msg = 'Ajax request aborted.';
-                } else {
-                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                }
-                $("patientHistory").html(msg);
-            }
-        });
-    });
-    $("#resetButton").click(function () {
-        debugger;
-        var form = $('#saveEntryForm')[0];
-        getValidationFields().forEach(f => form[f].classList.remove("input-validation-error"));
-        HideAddSection();
-    });
+}
 
-    function getValidationFields() {
-        return ['@nameof(Model.Complains)', '@nameof(Model.Examination)', '@nameof(Model.Recomendations)'];
-    }
-</script>
-
-
-
-@*</div>*@

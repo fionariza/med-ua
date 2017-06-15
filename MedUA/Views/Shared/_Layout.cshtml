@@ -24,7 +24,7 @@
                 <ul class="nav navbar-nav">
                     @if (User.IsInRole(MedUA.DAL.Roles.Patient))
                     {
-                        <li>@Html.ActionLink(MedUA.Resources.Resource.PatientLayoutLookMedicalCard, "PatientHistory", "Patient")</li>
+                        <li>@Html.ActionLink(MedUA.Resources.Resource.PatientLayoutLookMedicalCard, "PatientHistoryView", "Patient")</li>
                     }
                     @if (User.IsInRole(MedUA.DAL.Roles.Doctor))
                     {

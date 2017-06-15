@@ -1,61 +1,47 @@
-﻿@using System.Runtime.Versioning
+﻿@using System.Globalization
+@using MedUA.Models
 @model IEnumerable<MedUA.Models.PatientListViewModel>
 @{
     ViewBag.Title = @MedUA.Resources.Resource.ListPatientsViewTitle;
+    var patientFilterModel = new PatientListFilteredModel();
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Surname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Partonimic)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PlaceOfBirth)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastDateVisit)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
+@Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+<div class="form-group row">
+    @using (Ajax.BeginForm("ListPatients", new AjaxOptions() { HttpMethod = "Post", UpdateTargetId = "listPatients", InsertionMode = InsertionMode.Replace }))
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Surname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Partonimic)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlaceOfBirth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfBirth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastDateVisit)
-            </td>
-            <td>
-                @Html.ActionLink(@MedUA.Resources.Resource.ListPatientsViewChoose, "Details", new { patientId = item.Id }) 
-            </td>
-        </tr>
+        <div class="col-xs-1">
+            @Html.LabelFor(x => patientFilterModel.DayOfVisit)
+            @Html.TextBox(nameof(patientFilterModel.DayOfVisit), null, new { @class = "form-control input-sm", type = "number", min = 1, @max = 31, placeholder = "дд" })
+        </div>
+        <div class="col-xs-1">
+            @Html.LabelFor(x => patientFilterModel.MonthOfVisit)
+            @Html.TextBox(nameof(patientFilterModel.MonthOfVisit), null, new { @class = "form-control input-sm", type = "number", @min = 1, @max = 12, placeholder = "мм" })
+        </div>
+        <div class="col-xs-1">
+            @Html.LabelFor(x => patientFilterModel.YearOfVisit)
+            @Html.TextBox(nameof(patientFilterModel.YearOfVisit), null, new { @class = "form-control input-sm", type = "number", @min = 1870, @max = DateTime.Now.Year, placeholder = "рррр" })
+        </div>
+
+        <div class="col-xs-1">
+            @Html.LabelFor(x => patientFilterModel.DayOfBirth)
+            @Html.TextBox(nameof(patientFilterModel.DayOfBirth), null, new { @class = "form-control input-sm", type = "number", min = 1, @max = 31, placeholder = "дд" })
+        </div>
+        <div class="col-xs-1">
+            @Html.LabelFor(x => patientFilterModel.MonthOfBirth)
+            @Html.TextBox(nameof(patientFilterModel.MonthOfBirth), null, new { @class = "form-control input-sm", type = "number", @min = 1, @max = 12, placeholder = "мм" })
+        </div>
+        <div class="col-xs-1">
+            @Html.LabelFor(x => patientFilterModel.YearOfBirth)
+            @Html.TextBox(nameof(patientFilterModel.YearOfBirth), null, new { @class = "form-control input-sm", type = "number", @min = 1870, @max = DateTime.Now.Year, placeholder = "рррр" })
+        </div>
+        <div class="col-md-2">
+            @Html.LabelFor(x => patientFilterModel.Diagnosis)
+            @Html.TextBox(nameof(patientFilterModel.Diagnosis), null, new { @class = "form-control input-sm" })
+        </div>
+        <input type="submit" value="filter" />
     }
-</table>
+</div>
+<div id="listPatients">
+    @{Html.RenderPartial("ListPatientsPartial", Model);}
+</div>

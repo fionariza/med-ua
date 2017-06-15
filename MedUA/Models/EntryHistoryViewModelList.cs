@@ -5,12 +5,13 @@
 
     public class EntryHistoryViewModelList
     {
-        public IEnumerable<EntryHistoryViewModel> List { get; set; }
+        public IEnumerable<EntryHistoryViewModel> EntryHistory { get; set; }
         
         public IEnumerable<SelectListItem> ResearchList { get; set; }
 
         public string PatientId { get; set; }
-
-        public int Page { get; set; }
+        
+        public IEnumerable<SelectListItem> Regions { get; set; }
+        public IEnumerable<ResearchHistoryViewModel> ResearchHistory { get; set; }
     }
 }

@@ -67,18 +67,18 @@ namespace MedUATests
             context?.Dispose();
         }
 
-        [TestMethod]
-        public void GetResearchProvider_PerformanceTesting()
-        {
-            var method = new Func<bool>(() =>
-                {
-                    var result = this.CreateSut().GetResearchProvider().GetResearches().ToList().Any();
-                    this.Count();
-                    return result;
-                });
+        //[TestMethod]
+        //public void GetResearchProvider_PerformanceTesting()
+        //{
+        //    var method = new Func<bool>(() =>
+        //        {
+        //            var result = this.CreateSut().GetResearches().ToList().Any();
+        //            this.Count();
+        //            return result;
+        //        });
 
-            PerformTesting("Get researches", method);
-        }
+        //    PerformTesting("Get researches", method);
+        //}
 
         [TestMethod]
         public void GetListEntriesFilterPatientId_PerformanceTesting()

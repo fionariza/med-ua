@@ -3,13 +3,8 @@
 namespace MedUA.DAL
 {
     using System;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-
     using MedUA.DAL.EntityModel;
-
-    using Microsoft.AspNet.Identity;
-
+    
     public class ApplicationUser : IdentityUser
     {
         public string Name
